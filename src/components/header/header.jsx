@@ -1,19 +1,51 @@
 // "use client";
 import React from "react";
 import { LogoIcon } from "../../../public/icons/logo-icon";
-
+import Link from "next/link";
 export const Header = () => {
+  const page = [
+    {
+      id: 1,
+      title: "Mahsulotlar",
+      path: "/mahsulotlar",
+    },
+    {
+      id: 2,
+      title: "Xizmatlar",
+      path: "/xizmatlar",
+    },
+    {
+      id: 3,
+      title: "Mijozlar",
+      path: "/mijozlar",
+    },
+  ];
   return (
     <>
       <div className="flex items-center justify-between mx-auto container  lg:w-[1200px] pt-[25px] pb-[144px]">
-        <div>
-          <LogoIcon />
+        <div className="flex gap-[61px] items-center">
+          <div>
+            <Link href={"/"}>
+              <LogoIcon />
+            </Link>
+          </div>
+          <ul className="flex items-center gap-[52px]">
+            {page.map((item) => (
+              <li key={item.id}>
+                <Link
+                  href={item.path}
+                  className="text-[18px] font-[700]  hover:text-blue-500 transition-colors"
+                >
+                  {item.title}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
-        <ul>
-          <li>l1</li>
-        </ul>
         <div>
-          <button className="bg-black">'hello</button>
+          <button className=" font-[400] text-[14px] pt-[12px] pr-[12px] pb-[12px] pl-[19px] bg-[#A9A32A]">
+            Biz bilan bog’laning
+          </button>
         </div>
       </div>
     </>

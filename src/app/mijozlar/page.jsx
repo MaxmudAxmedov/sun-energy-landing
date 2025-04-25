@@ -1,4 +1,4 @@
-export default function News() {
+export default function Mijozlar() {
   return (
     <div className="p-8">
       <h1 className="text-3xl font-bold">News Us</h1>
