@@ -53,49 +53,12 @@ const config = {
         primary: ["Inter", "sans-serif"],
         secondary: "Dosis",
       },
-      screens: {
-        sm: "375px",
-        md: "768px",
-        lg: "1200px",
-        // xl: "1240px",
-        // xxl: "1340px",
-        // tab: "500px",
-        // nr: "425px",
-        // text: "900px",
-      },
       container: {
         center: true,
         padding: "2rem",
         screens: {
-          xxxl: "1440px",
+          lg: "1200px",
         },
-      },
-      borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
-      },
-      keyframes: {
-        "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
-        },
-        "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
-        },
-      },
-      animation: {
-        "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out",
       },
     },
   },
