@@ -17,6 +17,7 @@ export const HomeHero = () => {
       </h3>
       <Swiper
         spaceBetween={30}
+        slidesPerView={1}
         loop={true}
         autoplay={{
           delay: 2500,
