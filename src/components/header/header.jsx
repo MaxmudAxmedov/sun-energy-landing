@@ -7,7 +7,7 @@ export const Header = () => {
     {
       id: 1,
       title: "Mahsulotlar",
-      path: "/mahsulotlar",
+      id: "/mahsulotlar",
     },
     {
       id: 2,
@@ -31,13 +31,13 @@ export const Header = () => {
           </div>
           <ul className="flex items-center gap-[52px]">
             {page.map((item) => (
-              <li key={item.id}>
-                <Link
-                  href={item.path}
+              <li key={item.id} className="cursor-pointer">
+                <h4
+                  id={item.path}
                   className="text-[18px] font-[700]  hover:text-blue-500 transition-colors"
                 >
                   {item.title}
-                </Link>
+                </h4>
               </li>
             ))}
           </ul>
