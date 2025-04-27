@@ -6,18 +6,23 @@ export const Header = () => {
   const page = [
     {
       id: 1,
-      title: "Mahsulotlar",
-      id: "/mahsulotlar",
+      title: "Xizmatlar",
+      path: "#xizmatlar",
     },
     {
       id: 2,
-      title: "Xizmatlar",
-      path: "/xizmatlar",
+      title: "Mahsulotlar",
+      path: "#mahsulotlar",
     },
     {
       id: 3,
-      title: "Mijozlar",
-      path: "/mijozlar",
+      title: "Loyihalar",
+      path: "#loyihalar",
+    },
+    {
+      id: 4,
+      title: "Biz haqimizda",
+      path: "#biz_haqimizda",
     },
   ];
   return (
@@ -32,18 +37,20 @@ export const Header = () => {
           <ul className="flex items-center gap-[52px]">
             {page.map((item) => (
               <li key={item.id} className="cursor-pointer">
-                <h4
-                  id={item.path}
-                  className="text-[18px] font-[700]  hover:text-blue-500 transition-colors"
-                >
-                  {item.title}
+                <h4>
+                  <a
+                    href={item.path}
+                    className="text-[18px] font-[700]  hover:text-blue-500 transition-colors"
+                  >
+                    {item.title}
+                  </a>
                 </h4>
               </li>
             ))}
           </ul>
         </div>
         <div>
-          <button className=" font-[400] text-[14px] pt-[12px] pr-[12px] pb-[12px] pl-[19px] bg-[#A9A32A]">
+          <button className="font-[400] text-[14px] pt-[12px] pr-[12px] pb-[12px] pl-[19px] cursor-pointer bg-yellow">
             Biz bilan bog’laning
           </button>
         </div>
