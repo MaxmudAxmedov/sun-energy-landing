@@ -15,8 +15,13 @@ export const XizmatlarCard = ({ item }) => {
             {item.des}
           </p>
           <div>
-            <button className="font-[400] text-[14px] bg-yellow py-[14px] px-[18px] text-white cursor-pointer">
-              Biz bilan bog’laning
+            <button>
+              <a
+                href="#contact-form"
+                className="font-[400] text-[14px] bg-yellow py-[14px] px-[18px] text-white cursor-pointer"
+              >
+                Biz bilan bog’laning
+              </a>
             </button>
           </div>
         </div>
