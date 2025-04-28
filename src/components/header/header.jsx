@@ -40,7 +40,7 @@ export const Header = () => {
                 <h4>
                   <a
                     href={item.path}
-                    className="text-[18px] font-[700]  hover:text-blue-500 transition-colors"
+                    className="text-[18px] font-[700]  hover:text-yellow transition-colors"
                   >
                     {item.title}
                   </a>

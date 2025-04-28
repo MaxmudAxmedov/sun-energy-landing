@@ -52,6 +52,23 @@ export default async function Home() {
       des: "Dalalarda yoki boshqa joylarda panellarni o'rnatish va turli maqsadlar uchun sezilarli miqdorda energiya olish mumkin.",
     },
   ];
+  const Tariflar = {
+    onGrid: [
+      { power: 5, price: "4 500 000 " },
+      { power: 10, price: "4 300 000" },
+      { power: 20, price: "4 100 000" },
+      { power: 50, price: "3 900 000" },
+      { power: 100, price: "3 800 000" },
+    ],
+    hybrid: [
+      { power: 3, price: "6 300 000" },
+      { power: 5, price: "6 000 000" },
+      { power: 10, price: "5 500 000" },
+      { power: 15, price: "5 300 000" },
+      { power: 20, price: "5 000  000" },
+    ],
+  };
+
   // const productData = await GetProductData();
   const data = await GetProductCategoryData();
 
@@ -67,7 +84,9 @@ export default async function Home() {
               <h1 className="text-black2">{item.name}</h1>
             </div>
           ))} */}
-          <h2 className="text-grey font-[700] text-[24px] mb-[43px]">Xizmat ko’rsatish</h2>
+          <h2 className="text-grey font-[700] text-[24px] mb-[43px]">
+            Xizmat ko’rsatish
+          </h2>
           <div>
             {XizmatlarData?.map((item) => (
               <XizmatlarCard item={item} key={item.id} />
@@ -90,6 +109,67 @@ export default async function Home() {
           </h2>
           <div>
             <LoyihalarimizSwiper />
+          </div>
+        </div>
+        <div className="Tariflar mb-[60px]">
+          <h2 className="font-[700] text-[24px] text-grey mb-[20px]">
+            Tariflar
+          </h2>
+          <div>
+            <div className="flex items-center gap-[502px] justify-center mb-[8px]">
+              <h2 className="font-[700] text-[18px] text-black leading-[100%] ">
+                On-Grid
+              </h2>
+              <h2 className="font-[700] text-[18px] text-black leading-[100%] ">
+                Hybrid
+              </h2>
+            </div>
+            <div className="flex justify-between w-full ">
+              <div className="bg-[#e5e5e5] rounded-l-[12px]  w-[600px]">
+                <div className=" pl-[82px] pt-[14px] pb-[10px] flex gap-[165px] border-b-[1px] border-yellow ">
+                  <h3 className="font-[700] text-[18px] text-black leading-[100%] ">
+                    Quvvat ( kvt )
+                  </h3>
+                  <h3 className="font-[700] text-[18px] text-black leading-[100%]">
+                    Narxi
+                  </h3>
+                </div>
+                <div className="flex flex-col  w-full justify-between ">
+                  {Tariflar?.onGrid?.map((item) => (
+                    <div className="pl-[82px] pt-[14px] pb-[10px] flex gap-[165px] border-b-[1px] text-center border-yellow  items-center justify-between pr-[95px] last:border-none">
+                      <h3 className="font-[700] text-[18px] text-black leading-[100%]">
+                        {item.power}
+                      </h3>
+                      <h3 className="font-[700] text-[18px] text-black leading-[100%]">
+                        {item.price} sum
+                      </h3>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="bg-[#e5e5e5]  border-yellow border-l-[1px] rounded-r-[12px]  w-[600px]">
+                <div className=" pl-[82px] pt-[14px] pb-[10px] flex gap-[165px] border-b-[1px] border-yellow ">
+                  <h3 className="font-[700] text-[18px] text-black leading-[100%] ">
+                    Quvvat ( kvt )
+                  </h3>
+                  <h3 className="font-[700] text-[18px] text-black leading-[100%]">
+                    Narxi
+                  </h3>
+                </div>
+                <div className="flex flex-col  w-full justify-between ">
+                  {Tariflar?.hybrid?.map((item) => (
+                    <div className="pl-[82px] pt-[14px] pb-[10px] flex gap-[165px] border-b-[1px] text-center border-yellow  items-center justify-between pr-[95px] last:border-none">
+                      <h3 className="font-[700] text-[18px] text-black leading-[100%]">
+                        {item.power}
+                      </h3>
+                      <h3 className="font-[700] text-[18px] text-black leading-[100%]">
+                        {item.price} sum
+                      </h3>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
         </div>
         <div id="biz_haqimizda" className="biz haqimizda  ">
