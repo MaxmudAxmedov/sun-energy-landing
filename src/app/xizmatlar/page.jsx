@@ -1,0 +1,48 @@
+import { XizmatlarCard } from "@/components/xizmatlar-card/xizmatlar-card";
+import React from "react";
+
+const Xizmatlar = () => {
+  const XizmatlarData = [
+    {
+      id: 1,
+      img: "/imgs/xizmatlar1.png",
+      title: "Xususiy uylar va dachalar",
+      des: "Uylarda quyosh panellarini o'rnatish uchun sizga faqat ishonchli tom kerak bo'ladi. Professional dizayn bilan deyarli har qanday uyda quyosh stansiyasini o'rnatish mumkin.",
+    },
+    {
+      id: 2,
+      img: "/imgs/xizmatlar2.png",
+      title: "Ofis binolari va korxonalar",
+      des: "Quyosh panellarini o'rnatish kompaniya menejeri qabul qilishi mumkin bo'lgan eng yaxshi qarordir. Shunday qilib, ofis yoki korxona zamonaviy energiya tejamkor yechimlar va ularning atrof-muhitga bo'lgan g'amxo'rligi haqida xabardorligini namoyish eta oladi.",
+    },
+    {
+      id: 3,
+      img: "/imgs/xizmatlar3.png",
+      title: "Sanoat hududlari",
+      des: "Dalalarda yoki boshqa joylarda panellarni o'rnatish va turli maqsadlar uchun sezilarli miqdorda energiya olish mumkin.",
+    },
+  ];
+  return (
+    <>
+      <div className="container lg:w-[1200px] mx-auto">
+        <div id="xizmatlar" className="service mt-[41px] mb-[95px]">
+          {/* {data?.Data?.product_categories?.map((item) => (
+              <div key={item.id}>
+                <h1 className="text-black2">{item.name}</h1>
+              </div>
+            ))} */}
+          <h2 className="text-grey font-[700] text-[24px] mb-[43px]">
+            Xizmat ko’rsatish
+          </h2>
+          <div>
+            {XizmatlarData?.map((item) => (
+              <XizmatlarCard item={item} key={item.id} />
+            ))}
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default Xizmatlar;

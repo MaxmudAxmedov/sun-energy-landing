@@ -7,22 +7,27 @@ export const Header = () => {
     {
       id: 1,
       title: "Xizmatlar",
-      path: "#xizmatlar",
+      path: "/xizmatlar",
     },
     {
       id: 2,
       title: "Mahsulotlar",
-      path: "#mahsulotlar",
+      path: "/mahsulotlar",
     },
     {
       id: 3,
       title: "Loyihalar",
-      path: "#loyihalar",
+      path: "/loyihalar",
     },
     {
       id: 4,
       title: "Biz haqimizda",
-      path: "#biz_haqimizda",
+      path: "/biz-haqimizda",
+    },
+    {
+      id: 5,
+      title: "Hisoblash",
+      path: "/hisoblash",
     },
   ];
   return (
@@ -38,12 +43,12 @@ export const Header = () => {
             {page.map((item) => (
               <li key={item.id} className="cursor-pointer">
                 <h4>
-                  <a
+                  <Link
                     href={item.path}
                     className="text-[18px] font-[700]  hover:text-yellow transition-colors"
                   >
                     {item.title}
-                  </a>
+                  </Link>
                 </h4>
               </li>
             ))}

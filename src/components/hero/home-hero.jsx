@@ -28,7 +28,7 @@ export const HomeHero = () => {
         <SwiperSlide>
           <div>
             <h1 className="text-[64px] font-bold mx-auto text-center container lg:w-[1600px] pb-[249px]">
-              quyosh panellarini o'rnatish orqali siz, elektr ta'minotiga qaram
+              Quyosh panellarini o'rnatish orqali siz, elektr ta'minotiga qaram
               bo'lmaysiz.
             </h1>
           </div>
@@ -36,8 +36,28 @@ export const HomeHero = () => {
         <SwiperSlide>
           <div>
             <h1 className="text-[64px] font-bold mx-auto text-center container lg:w-[1600px] pb-[249px]">
-              quyosh panellarini o'rnatish orqali siz, elektr ta'minotiga qaram
-              bo'lmaysiz.
+              Quyosh energiyasi bu tabiatning insoniyatga tuhfasi.
+            </h1>
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div>
+            <h1 className="text-[64px] font-bold mx-auto text-center container lg:w-[1600px] pb-[249px]">
+              Quyosh panellarini o'rnating, daromadga ega bo‘ling.
+            </h1>
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div>
+            <h1 className="text-[64px] font-bold mx-auto text-center container lg:w-[1600px] pb-[249px]">
+              Yashil iqtisodiyot kelajak bunyodkori.
+            </h1>
+          </div>
+        </SwiperSlide>
+        <SwiperSlide>
+          <div>
+            <h1 className="text-[64px] font-bold mx-auto text-center container lg:w-[1600px] pb-[249px]">
+              Uy-ro‘zg‘or ehtiyojini yashil iqtisodiyotga topshiring.
             </h1>
           </div>
         </SwiperSlide>

@@ -28,12 +28,10 @@ export default function RootLayout({ children }) {
         <div className="relative flex min-h-screen flex-col ">
           <div
             className="bg-cover bg-center "
-            style={
-              isHomePage ? { backgroundImage: "url('/imgs/hero-bg.jpg')" } : {}
-            }
+            style={{ backgroundImage: "url('/imgs/hero-bg.jpg')" }}
           >
             <Header />
-            {isHomePage && <HomeHero />}
+             <HomeHero />
           </div>
           <main className="flex-1">{children}</main>
           <Footer />
