@@ -52,25 +52,27 @@ export default async function Home() {
       des: "Dalalarda yoki boshqa joylarda panellarni o'rnatish va turli maqsadlar uchun sezilarli miqdorda energiya olish mumkin.",
     },
   ];
+
   const Tariflar = {
     onGrid: [
-      { power: 5, price: "4 500 000 " },
-      { power: 10, price: "4 300 000" },
-      { power: 20, price: "4 100 000" },
-      { power: 50, price: "3 900 000" },
-      { power: 100, price: "3 800 000" },
+      { id: 1, power: 5, price: "4 500 000 " },
+      { id: 2, power: 10, price: "4 300 000" },
+      { id: 3, power: 20, price: "4 100 000" },
+      { id: 4, power: 50, price: "3 900 000" },
+      { id: 5, power: 100, price: "3 800 000" },
     ],
     hybrid: [
-      { power: 3, price: "6 300 000" },
-      { power: 5, price: "6 000 000" },
-      { power: 10, price: "5 500 000" },
-      { power: 15, price: "5 300 000" },
-      { power: 20, price: "5 000  000" },
+      { id: 6, power: 3, price: "6 300 000" },
+      { id: 7, power: 5, price: "6 000 000" },
+      { id: 8, power: 10, price: "5 500 000" },
+      { id: 9, power: 15, price: "5 300 000" },
+      { id: 10, power: 20, price: "5 000  000" },
     ],
   };
 
   // const productData = await GetProductData();
   const data = await GetProductCategoryData();
+  console.log(data);
 
   // console.log(productData, "hello");
   // console.log(data.Data.product_categories, "hello12");
@@ -136,7 +138,10 @@ export default async function Home() {
                 </div>
                 <div className="flex flex-col  w-full justify-between ">
                   {Tariflar?.onGrid?.map((item) => (
-                    <div className="pl-[82px] pt-[14px] pb-[10px] flex gap-[165px] border-b-[1px] text-center border-yellow  items-center justify-between pr-[95px] last:border-none">
+                    <div
+                      key={item.id}
+                      className="pl-[82px] pt-[14px] pb-[10px] flex gap-[165px] border-b-[1px] text-center border-yellow  items-center justify-between pr-[95px] last:border-none"
+                    >
                       <h3 className="font-[700] text-[18px] text-black leading-[100%]">
                         {item.power}
                       </h3>
@@ -158,7 +163,10 @@ export default async function Home() {
                 </div>
                 <div className="flex flex-col  w-full justify-between ">
                   {Tariflar?.hybrid?.map((item) => (
-                    <div className="pl-[82px] pt-[14px] pb-[10px] flex gap-[165px] border-b-[1px] text-center border-yellow  items-center justify-between pr-[95px] last:border-none">
+                    <div
+                      key={item.id}
+                      className="pl-[82px] pt-[14px] pb-[10px] flex gap-[165px] border-b-[1px] text-center border-yellow  items-center justify-between pr-[95px] last:border-none"
+                    >
                       <h3 className="font-[700] text-[18px] text-black leading-[100%]">
                         {item.power}
                       </h3>
