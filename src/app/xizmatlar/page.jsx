@@ -25,7 +25,7 @@ const Xizmatlar = () => {
   return (
     <>
       <div className="container lg:w-[1200px] mx-auto">
-        <div id="xizmatlar" className="service mt-[41px] mb-[95px]">
+        <div id="xizmatlar" className="service mt-[87px] mb-[100px]">
           {/* {data?.Data?.product_categories?.map((item) => (
               <div key={item.id}>
                 <h1 className="text-black2">{item.name}</h1>

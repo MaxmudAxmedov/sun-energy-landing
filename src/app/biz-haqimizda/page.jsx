@@ -4,7 +4,7 @@ const BizHaqimizda = () => {
   return (
     <>
       <div className="container lg:w-[1200px] mx-auto">
-        <div id="biz_haqimizda" className="biz haqimizda  ">
+        <div id="biz_haqimizda" className="biz haqimizda mt-[87px] mb-[102px] ">
           <h2 className="font-[700] text-[24px] text-grey mb-[25px] ">
             Biz haqimizda
           </h2>

@@ -31,7 +31,7 @@ const Mahsulotlar = () => {
   return (
     <>
       <div className="container lg:w-[1200px] mx-auto">
-        <div id="mahsulotlar" className="mt-100px mb-[85px]">
+        <div id="mahsulotlar" className="mt-[87px] mb-[90px]">
           <h2 className="font-[700] text-[24px] mb-[52px] text-grey">
             Mahsulotlar
           </h2>
