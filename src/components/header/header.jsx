@@ -2,7 +2,14 @@
 import React from "react";
 import { LogoIcon } from "../../../public/icons/logo-icon";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 export const Header = () => {
+  const pathname = usePathname();
+
+  const isActive = (path) => {
+    if (pathname === "/") return path === "/xizmatlar";
+    return pathname === path;
+  };
   const page = [
     {
       id: 1,
@@ -45,7 +52,11 @@ export const Header = () => {
                 <h4>
                   <Link
                     href={item.path}
-                    className="text-[18px] font-[700]  hover:text-yellow transition-colors"
+                    className={`text-[18px] font-[700] transition-colors ${
+                      isActive(item.path)
+                        ? "text-[#007AFF]"
+                        : "hover:text-[#007AFF]"
+                    }`}
                   >
                     {item.title}
                   </Link>

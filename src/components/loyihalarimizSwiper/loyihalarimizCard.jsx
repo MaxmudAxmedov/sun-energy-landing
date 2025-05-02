@@ -13,42 +13,18 @@ const LoyihalarimizData = [
   {
     id: 1,
     img: "/imgs/loyihalar1.jpg",
-    title: "Shaxsiy uy uchun 1",
-    location: "Расположение: Харьковская обл., г. Харьков",
-    netWorth:
-      "Чистый доход за вычетом налогов с мая 2017 г. по май 2019 г. 13 900 $.",
-    remont: "Смонтирована: апрель 2017 г.",
-    srok: "Срок службы: 25-30 лет",
   },
   {
     id: 2,
     img: "/imgs/loyihalar1.jpg",
-    title: "Shaxsiy uy uchun 2",
-    location: "Расположение: Харьковская обл., г. Харьков",
-    netWorth:
-      "Чистый доход за вычетом налогов с мая 2017 г. по май 2019 г. 13 900 $.",
-    remont: "Смонтирована: апрель 2017 г.",
-    srok: "Срок службы: 25-30 лет",
   },
   {
     id: 3,
     img: "/imgs/loyihalar1.jpg",
-    title: "Shaxsiy uy uchun3 ",
-    location: "Расположение: Харьковская обл., г. Харьков",
-    netWorth:
-      "Чистый доход за вычетом налогов с мая 2017 г. по май 2019 г. 13 900 $.",
-    remont: "Смонтирована: апрель 2017 г.",
-    srok: "Срок службы: 25-30 лет",
   },
   {
     id: 4,
     img: "/imgs/loyihalar1.jpg",
-    title: "Shaxsiy uy uchun4",
-    location: "Расположение: Харьковская обл., г. Харьков",
-    netWorth:
-      "Чистый доход за вычетом налогов с мая 2017 г. по май 2019 г. 13 900 $.",
-    remont: "Смонтирована: апрель 2017 г.",
-    srok: "Срок службы: 25-30 лет",
   },
 ];
 export const LoyihalarimizSwiper = () => {
@@ -56,7 +32,7 @@ export const LoyihalarimizSwiper = () => {
     <>
       <Swiper
         spaceBetween={30}
-        slidesPerView={1}
+        slidesPerView={3}
         loop={true}
         autoplay={{
           delay: 5000,
@@ -67,26 +43,9 @@ export const LoyihalarimizSwiper = () => {
       >
         {LoyihalarimizData?.map((item) => (
           <SwiperSlide key={item.id}>
-            <div className="flex gap-[91px] select-none">
+            <div className="">
               <div>
-                <img src={item.img} alt="#" />
-              </div>
-              <div>
-                <h1 className="font-[700] text-[18px] mb-[55px] text-black">
-                  {item.title}
-                </h1>
-                <p className="font-[400] text-[14px] text-black mb-[15px]">
-                  {item.location}
-                </p>
-                <p className="font-[400] text-[14px] text-black mb-[15px]">
-                  {item.netWorth}
-                </p>
-                <p className="font-[400] text-[14px] text-black mb-[15px]">
-                  {item.remont}
-                </p>
-                <p className="font-[400] text-[14px] text-black mb-[15px]">
-                  {item.srok}
-                </p>
+                <img className="w-[378px] h-[358px]" src={item.img} alt="#" />
               </div>
             </div>
           </SwiperSlide>
