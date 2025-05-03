@@ -1,11 +1,14 @@
-import React from "react";
+import HisoblashComp from "@/components/Hisoblash-Comp/hisoblash-comp";
+import { GetProductData } from "@/service/queries/GetProductData";
 
-const Hisoblash = () => {
+export default async function HisoblashPage() {
+  const productData = await GetProductData();
+  const products = productData?.Data?.products || [];
+  console.log(products);
+
   return (
     <div>
-      <h1 className="text-4xl text-black">Hisoblash</h1>
+      <HisoblashComp products={products} />
     </div>
   );
-};
-
-export default Hisoblash;
+}
