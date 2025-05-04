@@ -14,7 +14,7 @@ export const HisoblashCard = ({ item }) => {
           </p>
           <div>
             <p className="font-[400] text-[16px] mb-[24px]">
-              Quvvati:{" "}
+              Quvvati:
               <span className="text-[19px] font-[400]">{item.watt}</span>
             </p>
           </div>
