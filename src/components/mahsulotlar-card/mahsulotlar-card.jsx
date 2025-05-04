@@ -5,14 +5,14 @@ export const MahsulotlarCard = ({ item }) => {
     <>
       <div className="">
         <div>
-          <img src={item.img} alt="#" />
+          <img className="w-[548px] h-[414px]" src={item.photo || []} alt="#" />
         </div>
         <div className="w-[518px] mt-[25px] ml-[16px]">
           <h3 className="font-[700] text-[18px] mb-[11px] text-black">
-            {item.title}
+            {item.name}
           </h3>
           <p className="font-[400] text-[14px] mb-[65px] text-black">
-            {item.des}
+            {item.description}
           </p>
           <div className="text-right">
             <button>

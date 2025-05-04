@@ -1,7 +1,11 @@
 import { MahsulotlarCard } from "@/components/mahsulotlar-card/mahsulotlar-card";
+import { GetProductData } from "@/service/queries/GetProductData";
 import React from "react";
 
-const Mahsulotlar = () => {
+const Mahsulotlar = async () => {
+  const productData = (await GetProductData()) || [];
+  console.log(productData.Data.products);
+
   const MahsulotlarData = [
     {
       id: 1,
@@ -28,6 +32,7 @@ const Mahsulotlar = () => {
       des: "Gibridli quyoshli elektr stantsiyasi - avtonom va tarmoq funksiyalarini birlashtiradi. Bunday stansiyalar, shuningdek, zaxira stansiyalar deb ataladi, chunki ular tez-tez elektr uzilishlariga duch keladigan ob'ektlar uchun ishonchli zaxirani ta'minlaydi...",
     },
   ];
+
   return (
     <>
       <div className="container lg:w-[1200px] mx-auto">
@@ -36,7 +41,7 @@ const Mahsulotlar = () => {
             Mahsulotlar
           </h2>
           <div className="flex flex-wrap justify-between gap-[39px]">
-            {MahsulotlarData?.map((item) => (
+            {productData?.Data?.products?.map((item) => (
               <MahsulotlarCard key={item.id} item={item} />
             ))}
           </div>
