@@ -4,7 +4,7 @@ import React from "react";
 
 const Mahsulotlar = async () => {
   const productData = (await GetProductData()) || [];
-  console.log(productData.Data.products);
+  console.log(productData);
 
   const MahsulotlarData = [
     {
