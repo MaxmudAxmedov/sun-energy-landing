@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { HisoblashCard } from "../Hisoblash-Card/hisoblash-card";
 
 export default function HisoblashComp({ products }) {
-  const [selectedPowerSystem, setSelectedPowerSystem] = useState("off-grid");
+  const [selectedPowerSystem, setSelectedPowerSystem] = useState("on-grid");
 
   const filteredProducts = products.filter(
     (item) => item.power_system?.toLowerCase() === selectedPowerSystem

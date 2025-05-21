@@ -1,6 +1,7 @@
 export const GetProductCategoryData = async () => {
     try {
-        const url = process.env.NEXT_PUBLIC_BACKEND_URL || "";
+        // const url = process.env.NEXT_PUBLIC_BACKEND_URL || "";
+        const url = "https://sun-energy-api.ibodulla.uz/api/v1";
         const response = await fetch(`${url}/product-categories`, {
             headers: {
                 "Content-Type": "application/json",
