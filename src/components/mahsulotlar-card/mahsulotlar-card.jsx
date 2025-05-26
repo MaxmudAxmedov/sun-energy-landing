@@ -1,3 +1,4 @@
+import { forceConvertDomain } from "@/lib/forceConvertDomain";
 import React from "react";
 
 export const MahsulotlarCard = ({ item }) => {
@@ -5,7 +6,7 @@ export const MahsulotlarCard = ({ item }) => {
     <>
       <div className="">
         <div>
-          <img className="w-[548px] h-[414px]" src={item.photo || []} alt="#" />
+          <img className="w-[548px] h-[414px]" src={forceConvertDomain(item.photo) || []} alt="#" />
         </div>
         <div className="w-[518px] mt-[25px] ml-[16px]">
           <h3 className="font-[700] text-[18px] mb-[11px] text-black">

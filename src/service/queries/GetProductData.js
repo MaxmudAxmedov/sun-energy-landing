@@ -1,7 +1,7 @@
 export const GetProductData = async () => {
     try {
         // const url = process.env.NEXT_PUBLIC_BACKEND_URL || "";
-        const url = "https://sun-energy-api.ibodulla.uz/api/v1";
+        const url = "https://backend-secure.quyosh-panellari.uz/api/v1";
         const response = await fetch(`${url}/products-filter`, {
             headers: {
                 "Content-Type": "application/json",

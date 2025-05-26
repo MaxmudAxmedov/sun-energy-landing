@@ -19,7 +19,6 @@ export default function HisoblashComp({ products }) {
               <h4 className="text-[14px] font-[400]  text-black">
                 Stansiya turini tanlang
               </h4>
-
               <p className="text-black font-[400] text-[14px]">
                 <span className="text-yellow">kvt</span> ni tanlang
               </p>
