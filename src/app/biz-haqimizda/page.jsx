@@ -1,3 +1,4 @@
+import { LoyihalarimizSwiper } from "@/components/loyihalarimizSwiper/loyihalarimizCard";
 import React from "react";
 
 const BizHaqimizda = () => {
@@ -56,6 +57,18 @@ const BizHaqimizda = () => {
                 repellat praesentium.
               </p>
             </div>
+          </div>
+        </div>
+
+        <div
+          id="loyihalar"
+          className="loyihalarimiz mt-[87px]  mb-[107px] text-black"
+        >
+          <h2 className="font-[700] text-[24px] text-grey mb-[60px]">
+            Loyihalarimiz
+          </h2>
+          <div>
+            <LoyihalarimizSwiper />
           </div>
         </div>
       </div>

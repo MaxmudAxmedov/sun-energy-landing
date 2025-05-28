@@ -1,37 +1,9 @@
 import { MahsulotlarCard } from "@/components/mahsulotlar-card/mahsulotlar-card";
 import { GetProductData } from "@/service/queries/GetProductData";
-import React from "react";
+
 
 const Mahsulotlar = async () => {
   const productData = (await GetProductData()) || [];
-  console.log(productData);
-
-  const MahsulotlarData = [
-    {
-      id: 1,
-      img: "/imgs/mahsulotlar.jpg",
-      title: "Hibrid - Gibridli EST",
-      des: "Gibridli quyoshli elektr stantsiyasi - avtonom va tarmoq funksiyalarini birlashtiradi. Bunday stansiyalar, shuningdek, zaxira stansiyalar deb ataladi, chunki ular tez-tez elektr uzilishlariga duch keladigan ob'ektlar uchun ishonchli zaxirani ta'minlaydi...",
-    },
-    {
-      id: 2,
-      img: "/imgs/mahsulotlar.jpg",
-      title: "Hibrid - Gibridli EST2",
-      des: "Gibridli quyoshli elektr stantsiyasi - avtonom va tarmoq funksiyalarini birlashtiradi. Bunday stansiyalar, shuningdek, zaxira stansiyalar deb ataladi, chunki ular tez-tez elektr uzilishlariga duch keladigan ob'ektlar uchun ishonchli zaxirani ta'minlaydi...",
-    },
-    {
-      id: 3,
-      img: "/imgs/mahsulotlar.jpg",
-      title: "Hibrid - Gibridli EST3",
-      des: "Gibridli quyoshli elektr stantsiyasi - avtonom va tarmoq funksiyalarini birlashtiradi. Bunday stansiyalar, shuningdek, zaxira stansiyalar deb ataladi, chunki ular tez-tez elektr uzilishlariga duch keladigan ob'ektlar uchun ishonchli zaxirani ta'minlaydi...",
-    },
-    {
-      id: 4,
-      img: "/imgs/mahsulotlar.jpg",
-      title: "Hibrid - Gibridli EST4",
-      des: "Gibridli quyoshli elektr stantsiyasi - avtonom va tarmoq funksiyalarini birlashtiradi. Bunday stansiyalar, shuningdek, zaxira stansiyalar deb ataladi, chunki ular tez-tez elektr uzilishlariga duch keladigan ob'ektlar uchun ishonchli zaxirani ta'minlaydi...",
-    },
-  ];
 
   return (
     <>
