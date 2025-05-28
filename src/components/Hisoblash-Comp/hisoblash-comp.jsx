@@ -5,7 +5,7 @@ import { HisoblashCard } from "../Hisoblash-Card/hisoblash-card";
 
 export default function HisoblashComp({ products }) {
   const [selectedPowerSystem, setSelectedPowerSystem] = useState("on-grid");
-
+console.log(products);
   const filteredProducts = products.filter(
     (item) => item.power_system?.toLowerCase() === selectedPowerSystem
   );
@@ -46,6 +46,8 @@ export default function HisoblashComp({ products }) {
             <div>
               <select className="border border-yellow w-[142px] rounded-[12px] py-[7px] pr-[7px] text-right text-black outline-none">
                 <option value="3 kvt">3 kvt</option>
+                <option value="3 kvt">4 kvt</option>
+                <option value="3 kvt">5 kvt</option>
               </select>
             </div>
           </div>

@@ -2,7 +2,7 @@ import { forceConvertDomain } from "@/lib/forceConvertDomain";
 import React from "react";
 
 export const HisoblashCard = ({ item }) => {
-  console.log(item);
+    console.log(item);
     return (
         <>
             <div>
