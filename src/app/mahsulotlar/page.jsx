@@ -3,7 +3,7 @@ import { GetProductData } from "@/service/queries/GetProductData";
 
 
 const Mahsulotlar = async () => {
-  const productData = (await GetProductData()) || [];
+  const productData = (await GetProductData({ limit: "1000" })) || [];
 
   return (
     <>

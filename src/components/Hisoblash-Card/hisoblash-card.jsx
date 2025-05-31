@@ -4,7 +4,6 @@ import React, { useState } from "react";
 export const HisoblashCard = ({ item }) => {
     const [showMore, setShowMore] = useState(false);
     const maxLength = 30;
-
     const truncatedText =
         item.description.length > maxLength
             ? item.description.slice(
@@ -21,11 +20,21 @@ export const HisoblashCard = ({ item }) => {
                         src={forceConvertDomain(item.photo)}
                         alt="#"
                     />
+                    {item.neededCount && (
+                        <p>
+                            Tanlangan kvt bo'yicha{" "}
+                            <span className="fonts-[500] text-[18px] text-yellow">
+                                {item.neededCount}
+                            </span>{" "}
+                            dona yetarli
+                        </p>
+                    )}
                 </div>
                 <div>
                     <h2 className="mb-[11px] text-[18px] font-[700]">
                         {item.name}
                     </h2>
+                    <p>{Number(item.selling_price).toLocaleString()} sum</p>
                     <p className="font-[400] text-[14px] mb-[8px] text-black h-[120px] overflow-y-scroll p-1">
                         {showMore ? item.description : truncatedText}
                         {item.description.length > maxLength && (

@@ -1,31 +1,66 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import { HisoblashCard } from "../Hisoblash-Card/hisoblash-card";
 
 export default function HisoblashComp({ products }) {
     const [selectedPowerSystem, setSelectedPowerSystem] = useState("on-grid");
+    const [selectedCategory, setSelectedCategory] = useState("all");
     const [selectedKvt, setSelectedKvt] = useState();
 
     const selectedWatt = selectedKvt ? parseFloat(selectedKvt) * 1000 : 0;
 
-    const filteredProducts = products.filter(
-        (item) => item.power_system?.toLowerCase() === selectedPowerSystem
-    );
+    const filteredProducts = products.filter((item) => {
+        const matchesPowerSystem =
+            item.power_system?.toLowerCase() === selectedPowerSystem;
+        const matchesCategory =
+            selectedCategory === "all" ||
+            item.category_name?.toLowerCase() ===
+                selectedCategory.toLowerCase();
+        const isNotExcludedCategory =
+            item.category_name?.toLowerCase() !== "elektrika aksesuarlari";
+
+        return matchesPowerSystem && matchesCategory && isNotExcludedCategory;
+    });
+
+    const categoryOptions = useMemo(() => {
+        const set = new Set();
+        products.forEach((item) => {
+            const isMatchingPowerSystem =
+                item.power_system?.toLowerCase() === selectedPowerSystem;
+            const isNotExcludedCategory =
+                item.category_name?.toLowerCase() !== "elektrika aksesuarlari";
+
+            if (
+                isMatchingPowerSystem &&
+                isNotExcludedCategory &&
+                item.category_name
+            ) {
+                set.add(item.category_name);
+            }
+        });
+        return Array.from(set);
+    }, [selectedPowerSystem, products]);
 
     let limitedProducts;
 
     if (!selectedKvt) {
-        limitedProducts = filteredProducts;
+        limitedProducts = filteredProducts.map((item) => ({
+            ...item,
+            neededCount: null,
+        }));
     } else {
         let wattSum = 0;
         limitedProducts = [];
 
         for (const product of filteredProducts) {
-          
             if (product.watt && wattSum + product.watt <= selectedWatt) {
-                limitedProducts.push(product);
                 wattSum += product.watt;
+                const count = Math.ceil(selectedWatt / product.watt);
+                limitedProducts.push({
+                    ...product,
+                    neededCount: count,
+                });
             }
         }
     }
@@ -57,9 +92,10 @@ export default function HisoblashComp({ products }) {
                                             checked={
                                                 selectedPowerSystem === type
                                             }
-                                            onChange={() =>
-                                                setSelectedPowerSystem(type)
-                                            }
+                                            onChange={() => {
+                                                setSelectedPowerSystem(type);
+                                                setSelectedCategory("all");
+                                            }}
                                             className="sr-only peer"
                                         />
                                         <div className="w-4 h-4 rounded-full border border-gray-400 peer-checked:bg-yellow peer-checked:border-yellow transition-all" />
@@ -75,24 +111,15 @@ export default function HisoblashComp({ products }) {
                                 onChange={(e) => setSelectedKvt(e.target.value)}
                                 className="border border-yellow w-[142px] rounded-[12px] py-[7px] pr-[7px] text-right text-black outline-none"
                             >
-                                <option value="3">3 kvt</option>
-                                <option value="4.2">4 kvt</option>
-                                <option value="5">5 kvt</option>
-                                <option value="6">6 kvt</option>
-                                <option value="8">8 kvt</option>
-                                <option value="10">10 kvt</option>
-                                <option value="11">11 kvt</option>
-                                <option value="15">15 kvt</option>
-                                <option value="20">20 kvt</option>
-                                <option value="25">25 kvt</option>
-                                <option value="30">30 kvt</option>
-                                <option value="40">40 kvt</option>
-                                <option value="50">50 kvt</option>
-                                <option value="60">60 kvt</option>
-                                <option value="70">70 kvt</option>
-                                <option value="80">80 kvt</option>
-                                <option value="90">90 kvt</option>
-                                <option value="100">100 kvt</option>
+                                <option value="">Kvt tanlang</option>
+                                {[
+                                    3, 4.2, 5, 6, 8, 10, 11, 15, 20, 25, 30, 40,
+                                    50, 60, 70, 80, 90, 100,
+                                ].map((kvt) => (
+                                    <option key={kvt} value={kvt}>
+                                        {kvt} kvt
+                                    </option>
+                                ))}
                             </select>
                         </div>
                     </div>
@@ -100,29 +127,54 @@ export default function HisoblashComp({ products }) {
                 <div className="bg-yellow rounded-[12px] py-[17px] pl-[37px] w-[667px]">
                     <h3 className="text-[14px] font-[400] mb-[20px]">
                         “ Hurmatli mijoz siz xarid qilmasdan turib o’z
-                        ehtiyojingizga qarab mahsulotlarni <br /> tanlashingiz
-                        mumkin, biz sizga hisoblab beramiz”.
+                        ehtiyojingizga qarab mahsulotlarni <br />
+                        tanlashingiz mumkin, biz sizga hisoblab beramiz”.
                     </h3>
 
                     <div>
                         <p className="font-[400] text-[14px] mb-[11px]">
                             1 - Stansiya turini tanlang.
                         </p>
-
                         <p className="font-[400] text-[14px] mb-[11px]">
                             2 - Ehtiyojingizga qarab kvt ni belgilang.
                         </p>
-
                         <p className="font-[400] text-[14px] mb-[11px]">
                             3 - Istalgan mahsulotni tanlang.
                         </p>
-
                         <p className="font-[400] text-[14px] mb-[11px]">
                             4 - Hisoblash tugmasini bosing.
                         </p>
                     </div>
                 </div>
             </div>
+
+            <ul className="flex gap-4 mb-6">
+                <li
+                    key="all"
+                    className={`cursor-pointer px-4 py-2 rounded ${
+                        selectedCategory === "all"
+                            ? "bg-yellow font-bold"
+                            : "bg-gray-200 text-black"
+                    }`}
+                    onClick={() => setSelectedCategory("all")}
+                >
+                    Barchasi
+                </li>
+                {categoryOptions.map((category) => (
+                    <li
+                        key={category}
+                        className={`cursor-pointer px-4 py-2 rounded ${
+                            selectedCategory === category
+                                ? "bg-yellow font-bold"
+                                : "bg-gray-200 text-black"
+                        }`}
+                        onClick={() => setSelectedCategory(category)}
+                    >
+                        {category}
+                    </li>
+                ))}
+            </ul>
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-black mt-[135px]">
                 {limitedProducts.map((item) => (
                     <HisoblashCard item={item} key={item.id} />
