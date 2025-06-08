@@ -42,8 +42,8 @@ export const Footer = () => {
         <>
             <div className=" bg-[url('/imgs/footer-bg.png')] bg-cover bg-center  pt-[54px] pb-[47px] ">
                 <div className="container lg:w-[1200px] mx-auto ">
-                    <div className="flex gap-[179px] justify-center">
-                        <div className="w-[510px] ">
+                    <div className="lg:flex gap-[179px] justify-center px-[15px] lg:px-[0px]">
+                        <div className="lg:w-[510px]  ">
                             <h3 className="font-[700] text-[24px] mb-[31px]">
                                 Ariza Qoldiring
                             </h3>
