@@ -26,12 +26,7 @@ const Xizmatlar = () => {
     <>
       <div className="container lg:w-[1200px] mx-auto">
         <div id="xizmatlar" className="service mt-[87px] mb-[100px]">
-          {/* {data?.Data?.product_categories?.map((item) => (
-              <div key={item.id}>
-                <h1 className="text-black2">{item.name}</h1>
-              </div>
-            ))} */}
-          <h2 className="text-grey font-[700] text-[24px] mb-[43px]">
+         <h2 className="text-grey font-[700] text-[24px] mb-[43px]">
             Xizmat ko’rsatish
           </h2>
           <div>
