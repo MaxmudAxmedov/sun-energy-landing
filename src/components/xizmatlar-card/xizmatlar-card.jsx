@@ -3,7 +3,7 @@ import React from "react";
 export const XizmatlarCard = ({ item }) => {
   return (
     <>
-      <div className="flex justify-between odd:flex-row-reverse mb-[73px]">
+      <div className=" block  lg:flex justify-between lg:odd:flex-row-reverse mb-[73px] px-[10px] ">
         <div>
           <img src={item.img} alt="#" />
         </div>

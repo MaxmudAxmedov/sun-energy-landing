@@ -1,7 +1,6 @@
 import { MahsulotlarCard } from "@/components/mahsulotlar-card/mahsulotlar-card";
 import { GetProductData } from "@/service/queries/GetProductData";
 
-
 const Mahsulotlar = async () => {
   const productData = (await GetProductData({ limit: "1000" })) || [];
 
@@ -9,10 +8,10 @@ const Mahsulotlar = async () => {
     <>
       <div className="container lg:w-[1200px] mx-auto">
         <div id="mahsulotlar" className="mt-[87px] mb-[90px]">
-          <h2 className="font-[700] text-[24px] mb-[52px] text-grey">
+          <h2 className="font-[700] text-[24px] mb-[52px] text-grey pl-[10px] lg:pl-[0px]">
             Mahsulotlar
           </h2>
-          <div className="flex flex-wrap justify-between gap-[39px]">
+          <div className="flex flex-wrap justify-center gap-[39px]">
             {productData?.Data?.products?.map((item) => (
               <MahsulotlarCard key={item.id} item={item} />
             ))}

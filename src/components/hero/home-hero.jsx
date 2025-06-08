@@ -10,9 +10,32 @@ import { TelegramIcon } from "../../../public/icons/telegram-icon";
 import { WhatsappIcon } from "../../../public/icons/whatsapp-icon";
 import { FacebookIcon } from "../../../public/icons/facebook-iocn";
 export const HomeHero = () => {
+  const SlideText = [
+    {
+      id: 1,
+      title:
+        "Quyosh panellarini o'rnatish orqali siz, elektr ta'minotiga qaram bo'lmaysiz.",
+    },
+    {
+      id: 2,
+      title: " Quyosh energiyasi bu tabiatning insoniyatga tuhfasi.",
+    },
+    {
+      id: 3,
+      title: "Quyosh panellarini o'rnating, daromadga ega bo‘ling.",
+    },
+    {
+      id: 4,
+      title: "Yashil iqtisodiyot kelajak bunyodkori.",
+    },
+    {
+      id: 5,
+      title: "Uy-ro‘zg‘or ehtiyojini yashil iqtisodiyotga topshiring.",
+    },
+  ];
   return (
     <>
-      <h3 className="text-[18px] text-center pb-[30px]  font-[400] ">
+      <h3 className=" text-[14px] md:text-[16px] lg:text-[18px] text-center pb-[30px]  font-[400] ">
         Quyosh panellarining afzalliklari
       </h3>
       <Swiper
@@ -25,42 +48,15 @@ export const HomeHero = () => {
         }}
         modules={[Autoplay, Pagination, Navigation]}
       >
-        <SwiperSlide>
-          <div>
-            <h1 className="text-[64px] font-bold mx-auto text-center container lg:w-[1600px] pb-[249px]">
-              Quyosh panellarini o'rnatish orqali siz, elektr ta'minotiga qaram
-              bo'lmaysiz.
-            </h1>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div>
-            <h1 className="text-[64px] font-bold mx-auto text-center container lg:w-[1600px] pb-[249px]">
-              Quyosh energiyasi bu tabiatning insoniyatga tuhfasi.
-            </h1>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div>
-            <h1 className="text-[64px] font-bold mx-auto text-center container lg:w-[1600px] pb-[249px]">
-              Quyosh panellarini o'rnating, daromadga ega bo‘ling.
-            </h1>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div>
-            <h1 className="text-[64px] font-bold mx-auto text-center container lg:w-[1600px] pb-[249px]">
-              Yashil iqtisodiyot kelajak bunyodkori.
-            </h1>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div>
-            <h1 className="text-[64px] font-bold mx-auto text-center container lg:w-[1600px] pb-[249px]">
-              Uy-ro‘zg‘or ehtiyojini yashil iqtisodiyotga topshiring.
-            </h1>
-          </div>
-        </SwiperSlide>
+        {SlideText?.map((item) => (
+          <SwiperSlide key={item.id}>
+            <div key={item.id}>
+              <h1 className=" text-[28px] md:text-[48px] lg:text-[64px] font-bold mx-auto text-center container lg:w-[1600px] pb-[249px] px-[10px]">
+                {item.title}
+              </h1>
+            </div>
+          </SwiperSlide>
+        ))}
       </Swiper>
 
       <div>

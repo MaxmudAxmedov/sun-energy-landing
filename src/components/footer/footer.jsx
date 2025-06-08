@@ -40,7 +40,7 @@ export const Footer = () => {
 
     return (
         <>
-            <div className="bg-[url('/imgs/footer-bg.png')] bg-cover bg-center  pt-[54px] pb-[47px] ">
+            <div className=" bg-[url('/imgs/footer-bg.png')] bg-cover bg-center  pt-[54px] pb-[47px] ">
                 <div className="container lg:w-[1200px] mx-auto ">
                     <div className="flex gap-[179px] justify-center">
                         <div className="w-[510px] ">
