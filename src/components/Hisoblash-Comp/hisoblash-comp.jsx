@@ -66,8 +66,8 @@ export default function HisoblashComp({ products }) {
     }
 
     return (
-        <div className="container lg:w-[1200px] mx-auto mb-6">
-            <div className="flex items-center justify-center gap-[72px] mt-[35px] mb-[57px]">
+        <div className="container lg:max-w-[1200px] mx-auto mb-6">
+            <div className="flex items-center flex-col md:flex-row justify-center md:justify-between md:gap-[20px] lg:gap-[72px] mt-[35px] mb-5 md:mb-[57px]">
                 <div>
                     <div>
                         <div className="flex gap-[169px] items-center mb-[20px]">
@@ -80,8 +80,8 @@ export default function HisoblashComp({ products }) {
                             </p>
                         </div>
                     </div>
-                    <div className="flex  items-center gap-[35px] mb-6">
-                        <ul className="flex gap-4  items-center">
+                    <div className="flex items-center justify-between gap-[25px] mb-6">
+                        <ul className="flex gap-4 items-center">
                             {["on-grid", "off-grid", "hybrid"].map((type) => (
                                 <li key={type}>
                                     <label className="flex items-center gap-2 cursor-pointer text-black">
@@ -99,19 +99,20 @@ export default function HisoblashComp({ products }) {
                                             className="sr-only peer"
                                         />
                                         <div className="w-4 h-4 rounded-full border border-gray-400 peer-checked:bg-yellow peer-checked:border-yellow transition-all" />
-                                        <span className="capitalize">
+                                        <span className="capitalize text-[12px] md:text-[14px]">
                                             {type}
                                         </span>
                                     </label>
                                 </li>
                             ))}
                         </ul>
+
                         <div>
                             <select
                                 onChange={(e) => setSelectedKvt(e.target.value)}
-                                className="border border-yellow w-[142px] rounded-[12px] py-[7px] pr-[7px] text-right text-black outline-none"
+                                className="border border-yellow w-[100px] rounded-[12px] py-[7px] pr-[7px] text-right text-black outline-none text-[12px] md:text-[14px]"
                             >
-                                <option value="">Kvt tanlang</option>
+                                <option value="">Kvt</option>
                                 {[
                                     3, 4.2, 5, 6, 8, 10, 11, 15, 20, 25, 30, 40,
                                     50, 60, 70, 80, 90, 100,
@@ -124,8 +125,8 @@ export default function HisoblashComp({ products }) {
                         </div>
                     </div>
                 </div>
-                <div className="bg-yellow rounded-[12px] py-[17px] pl-[37px] w-[667px]">
-                    <h3 className="text-[14px] font-[400] mb-[20px]">
+                <div className="bg-yellow rounded-[12px] py-[17px] px-[37px] max-w-[667px]">
+                    <h3 className="text-[14px] font-[400] mb-[20px] text-wrap">
                         “ Hurmatli mijoz siz xarid qilmasdan turib o’z
                         ehtiyojingizga qarab mahsulotlarni <br />
                         tanlashingiz mumkin, biz sizga hisoblab beramiz”.
@@ -148,10 +149,10 @@ export default function HisoblashComp({ products }) {
                 </div>
             </div>
 
-            <ul className="flex gap-4 mb-6">
+            <ul className="flex gap-4 mb-6 justify-center md:justify-start">
                 <li
                     key="all"
-                    className={`cursor-pointer px-4 py-2 rounded ${
+                    className={`cursor-pointer px-4 py-2 rounded text-[12px] md:text-[14px] ${
                         selectedCategory === "all"
                             ? "bg-yellow font-bold"
                             : "bg-gray-200 text-black"
@@ -163,7 +164,7 @@ export default function HisoblashComp({ products }) {
                 {categoryOptions.map((category) => (
                     <li
                         key={category}
-                        className={`cursor-pointer px-4 py-2 rounded ${
+                        className={`cursor-pointer px-4 py-2 rounded text-[12px] md:text-[14px] ${
                             selectedCategory === category
                                 ? "bg-yellow font-bold"
                                 : "bg-gray-200 text-black"
@@ -175,7 +176,7 @@ export default function HisoblashComp({ products }) {
                 ))}
             </ul>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-black mt-[135px]">
+            <div className="grid grid-cols-1 justify-items-center md:grid-cols-2 lg:grid-cols-3 gap-4 text-black mt-6 md:mt-[135px]">
                 {limitedProducts.map((item) => (
                     <HisoblashCard item={item} key={item.id} />
                 ))}
