@@ -13,7 +13,7 @@ export const HisoblashCard = ({ item }) => {
             : item.description;
     return (
         <>
-            <div className="h-[520px]">
+            <div className="h-[520px] w-[280px]">
                 <div className="mb-[25px]">
                     <img
                         className="w-[280px] h-[250px]"
@@ -35,7 +35,7 @@ export const HisoblashCard = ({ item }) => {
                         {item.name}
                     </h2>
                     <p>{Number(item.selling_price).toLocaleString()} sum</p>
-                    <p className="font-[400] text-[14px] mb-[8px] text-black h-[120px] overflow-y-scroll p-1">
+                    <p className="font-[400] text-[14px] mb-[8px] text-black h-[120px] overflow-y-scroll p-1 w-[280px]">
                         {showMore ? item.description : truncatedText}
                         {item.description.length > maxLength && (
                             <button

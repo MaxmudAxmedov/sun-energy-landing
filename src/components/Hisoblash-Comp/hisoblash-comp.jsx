@@ -67,14 +67,14 @@ export default function HisoblashComp({ products }) {
 
     return (
         <div className="container lg:max-w-[1200px] mx-auto mb-6">
-            <div className="flex items-center flex-col md:flex-row justify-center md:justify-between md:gap-[20px] lg:gap-[72px] mt-[35px] mb-5 md:mb-[57px]">
+            <div className="flex items-center flex-col-reverse md:flex-row justify-center md:justify-between md:gap-[20px] lg:gap-[72px] mt-[35px] mb-5 md:mb-[57px]">
                 <div>
                     <div>
                         <div className="flex gap-[169px] items-center mb-[20px]">
-                            <h4 className="text-[14px] font-[400]  text-black">
+                            <h4 className="text-[14px] md:text-[16px] font-[400]  text-black">
                                 Stansiya turini tanlang
                             </h4>
-                            <p className="text-black font-[400] text-[14px]">
+                            <p className="text-black font-[400] text-[14px] md:text-[16px]">
                                 <span className="text-yellow">kvt</span> ni
                                 tanlang
                             </p>
@@ -125,24 +125,24 @@ export default function HisoblashComp({ products }) {
                         </div>
                     </div>
                 </div>
-                <div className="bg-yellow rounded-[12px] py-[17px] px-[37px] max-w-[667px]">
-                    <h3 className="text-[14px] font-[400] mb-[20px] text-wrap">
+                <div className="bg-yellow rounded-[12px] py-[17px] px-[20px] max-w-[667px] mb-5 md:mb-0">
+                    <h3 className="text-[15px] md:text-[17px] font-[400] mb-[20px] text-wrap">
                         “ Hurmatli mijoz siz xarid qilmasdan turib o’z
                         ehtiyojingizga qarab mahsulotlarni <br />
                         tanlashingiz mumkin, biz sizga hisoblab beramiz”.
                     </h3>
 
                     <div>
-                        <p className="font-[400] text-[14px] mb-[11px]">
+                        <p className="font-[400] text-[14px] md:text-[16px] mb-[11px]">
                             1 - Stansiya turini tanlang.
                         </p>
-                        <p className="font-[400] text-[14px] mb-[11px]">
+                        <p className="font-[400] text-[14px] md:text-[16px] mb-[11px]">
                             2 - Ehtiyojingizga qarab kvt ni belgilang.
                         </p>
-                        <p className="font-[400] text-[14px] mb-[11px]">
+                        <p className="font-[400] text-[14px] md:text-[16px] mb-[11px]">
                             3 - Istalgan mahsulotni tanlang.
                         </p>
-                        <p className="font-[400] text-[14px] mb-[11px]">
+                        <p className="font-[400] text-[14px] md:text-[16px] mb-[11px]">
                             4 - Hisoblash tugmasini bosing.
                         </p>
                     </div>

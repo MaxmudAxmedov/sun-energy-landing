@@ -1,10 +1,9 @@
 // "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { LogoIcon } from "../../../public/icons/logo-icon";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Hamburger from "../../../public/icons/hamburger";
-
 
 export const Header = () => {
     const pathname = usePathname();
@@ -70,24 +69,36 @@ export const Header = () => {
                     </ul>
 
                     {open && (
-                        <ul className="absolute flex flex-col right-2 top-[120px] bg-yellow gap-3 w-[150px] p-2">
-                            {page.map((item) => (
-                                <li key={item.id} className="cursor-pointer">
-                                    <h4>
-                                        <Link
-                                            href={item.path}
-                                            className={`text-[18px] font-[700] transition-colors ${
-                                                isActive(item.path)
-                                                    ? "text-[#007AFF]"
-                                                    : "hover:text-[#007AFF]"
-                                            }`}
-                                        >
-                                            {item.title}
-                                        </Link>
-                                    </h4>
-                                </li>
-                            ))}
-                        </ul>
+                        <div className="flex flex-col absolute right-2 top-[120px] p-3 w-[180px] bg-gray-600">
+                            <ul className="flex flex-col gap-3">
+                                {page.map((item) => (
+                                    <li
+                                        key={item.id}
+                                        className="cursor-pointer"
+                                    >
+                                        <h4>
+                                            <Link
+                                                href={item.path}
+                                                onClick={() => onOpen(false)}
+                                                className={`text-[14px] font-[700] transition-colors ${
+                                                    isActive(item.path)
+                                                        ? "text-yellow"
+                                                        : "hover:text-[#007AFF]"
+                                                }`}
+                                            >
+                                                {item.title}
+                                            </Link>
+                                        </h4>
+                                    </li>
+                                ))}
+                            </ul>
+                            <button
+                                onClick={() => onOpen(false)}
+                                className="font-[400] mt-3 text-left text-[14px] pl-[12px] pt-[12px] pb-[12px] cursor-pointer bg-yellow"
+                            >
+                                <a href="#contact-form">Biz bilan bog’laning</a>
+                            </button>
+                        </div>
                     )}
                 </div>
                 <div className="flex gap-3">
@@ -95,9 +106,9 @@ export const Header = () => {
                         className="block lg:hidden"
                         onClick={() => onOpen(!open)}
                     >
-                      <Hamburger />
+                        <Hamburger />
                     </button>
-                    <button className="font-[400] text-[14px] pt-[12px] pr-[12px] pb-[12px] pl-[19px] cursor-pointer bg-yellow">
+                    <button className="hidden lg:block font-[400] text-[14px] pt-[12px] pr-[12px] pb-[12px] pl-[19px] cursor-pointer bg-yellow">
                         <a href="#contact-form">Biz bilan bog’laning</a>
                     </button>
                 </div>

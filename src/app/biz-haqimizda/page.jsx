@@ -14,7 +14,7 @@ const BizHaqimizda = () => {
           </p>
           <div className="flex flex-wrap gap-[32px] justify-center mx-auto mb-[65px] ">
             <div className="bg-yellow rounded-[12px] w-[558px]">
-              <p className="font-[400] text-[14px] text-white py-[26px] px-[15px] ">
+              <p className="font-[400] text-[15px] md:text-[17px] text-white py-[26px] px-[15px] ">
                 Bizning “BRAVO SUN ENERGIES” korxonasi Xitoyning yirik ishlab
                 chiqaruvchilari bilan uzviy aloqa xizmati va kelishuv asosida
                 ish olib boradi. Bu esa bizning korxonamiz xizmatlarini yanada
@@ -23,7 +23,7 @@ const BizHaqimizda = () => {
               </p>
             </div>
             <div className="bg-yellow rounded-[12px] w-[558px]">
-              <p className="font-[400] text-[14px] text-white py-[26px] px-[15px] ">
+              <p className="font-[400] text-[15px] md:text-[17px] text-white py-[26px] px-[15px] ">
                 “BRAVO SUN ENERGIES” korxonasi Quyosh panellarini o’rnatmoqchi
                 bo’lgan fuqoro yoki korxonalar bilan doimiy aloqa markazi orqali
                 bog’lanib, ularda bo’layotgan savollarga javob berish uchun 12/6
@@ -31,7 +31,7 @@ const BizHaqimizda = () => {
               </p>
             </div>
             <div className="bg-yellow rounded-[12px] w-[558px]">
-              <p className="font-[400] text-[14px] text-white py-[26px] px-[15px] ">
+              <p className="font-[400] text-[15px] md:text-[17px] text-white py-[26px] px-[15px] ">
                 Bizning korxonamiz tomonidan o’rnatilgan stansiyalar uchun 1
                 yillik bepul servis xizmati yo’lga qo’yilgan va har bir
                 maxsulotning o’z kafolat muddati bo’lib, ular maxsulot ishlab
@@ -39,7 +39,7 @@ const BizHaqimizda = () => {
               </p>
             </div>
             <div className="bg-yellow rounded-[12px] w-[558px]">
-              <p className="font-[400] text-[14px] text-white py-[26px] px-[15px] ">
+              <p className="font-[400] text-[15px] md:text-[17px] text-white py-[26px] px-[15px] ">
                 Korxonamizning malakali mutaxasislari sizga o’z xizmatlarini
                 taqdim etish davomida sizga qurilish-montaj ishlarida yaxshi
                 tushuncha ham berib boradi. Bu bilan sizda Quyosh panellariga
