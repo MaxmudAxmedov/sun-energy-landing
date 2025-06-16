@@ -6,7 +6,6 @@ import React, { useState } from "react";
 export const MahsulotlarCard = ({ item }) => {
   const [showMore, setShowMore] = useState(false);
   const maxLength = 90;
-
   const truncatedText =
     item.description.length > maxLength
       ? item.description.slice(

@@ -1,7 +1,7 @@
 import { forceConvertDomain } from "@/lib/forceConvertDomain";
 import React, { useState } from "react";
 
-export const HisoblashCard = ({ item }) => {
+export const HisoblashCard = ({ item, step }) => {
     const [showMore, setShowMore] = useState(false);
     const maxLength = 30;
     const truncatedText =
@@ -13,22 +13,24 @@ export const HisoblashCard = ({ item }) => {
             : item.description;
     return (
         <>
-            <div className="h-[520px] w-[280px]">
+            <div className="w-[300px]">
                 <div className="mb-[25px]">
                     <img
                         className="w-[280px] h-[250px]"
                         src={forceConvertDomain(item.photo)}
                         alt="#"
                     />
-                    {item.neededCount && (
-                        <p>
-                            Tanlangan kvt bo'yicha{" "}
-                            <span className="fonts-[500] text-[18px] text-yellow">
-                                {item.neededCount}
-                            </span>{" "}
-                            dona yetarli
-                        </p>
-                    )}
+                    {step > 0
+                        ? item.neededCount && (
+                              <p>
+                                  Tanlangan kvt bo'yicha{" "}
+                                  <span className="fonts-[500] text-[18px] text-yellow">
+                                      {item.neededCount}
+                                  </span>{" "}
+                                  dona yetarli
+                              </p>
+                          )
+                        : ""}
                 </div>
                 <div>
                     <h2 className="mb-[11px] text-[18px] font-[700]">
