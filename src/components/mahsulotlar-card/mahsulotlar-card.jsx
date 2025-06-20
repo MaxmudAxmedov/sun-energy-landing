@@ -14,7 +14,7 @@ export const MahsulotlarCard = ({ item }) => {
         ) + "..."
       : item.description;
   return (
-    <div className="w-[300px]">
+    <div className="w-[220px]">
       <img
         className="w-[280px] h-[250px]"
         src={forceConvertDomain(item.photo) || []}

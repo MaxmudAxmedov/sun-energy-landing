@@ -1,25 +1,17 @@
-import { MahsulotlarCard } from "@/components/mahsulotlar-card/mahsulotlar-card";
 import { GetProductData } from "@/service/queries/GetProductData";
+import ProductClient from "./ProductClient";
 
 const Mahsulotlar = async () => {
-  const productData = (await GetProductData({ limit: "1000" })) || [];
+    const productData = (await GetProductData({ limit: "1000" })) || [];
+    const allProducts = productData?.Data?.products || [];
 
-  return (
-    <>
-      <div className="container lg:w-[1200px] mx-auto">
-        <div id="mahsulotlar" className="mt-[87px] mb-[90px]">
-          <h2 className="font-[700] text-[24px] mb-[52px] text-grey pl-[10px] lg:pl-[0px]">
-            Mahsulotlar
-          </h2>
-          <div className="flex flex-wrap justify-center gap-[39px]">
-            {productData?.Data?.products?.map((item) => (
-              <MahsulotlarCard key={item.id} item={item} />
-            ))}
-          </div>
-        </div>
-      </div>
-    </>
-  );
+    const uniqueCategories = Array.from(
+        new Set(allProducts.map((item) => item.category_name))
+    );
+
+    return (
+        <ProductClient products={allProducts} categories={uniqueCategories} />
+    );
 };
 
 export default Mahsulotlar;

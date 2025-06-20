@@ -39,6 +39,11 @@ export const Header = () => {
             title: "Biz haqimizda",
             path: "/biz-haqimizda",
         },
+        {
+            id: 6,
+            title: "Bilishingiz kerak",
+            path: "/info",
+        },
     ];
     return (
         <>
@@ -55,10 +60,10 @@ export const Header = () => {
                                 <h4>
                                     <Link
                                         href={item.path}
-                                        className={`text-[18px] font-[700] transition-colors ${
+                                        className={`text-[18px] pb-1 font-[700] transition-colors ${
                                             isActive(item.path)
-                                                ? "text-[#007AFF]"
-                                                : "hover:text-[#007AFF]"
+                                                ? "border-b text-yellow"
+                                                : "hover:text-yellow"
                                         }`}
                                     >
                                         {item.title}

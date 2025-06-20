@@ -3,40 +3,41 @@ import { Header } from "@/components/header/header";
 import "./globals.css";
 import { Inter } from "next/font/google";
 import { Footer } from "@/components/footer/footer";
-import { usePathname } from "next/navigation"; // ✅ Correct import
+import { usePathname } from "next/navigation";
 import { HomeHero } from "@/components/hero/home-hero";
 
 const inter = Inter({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-inter",
+    subsets: ["latin"],
+    display: "swap",
+    variable: "--font-inter",
 });
 
 export default function RootLayout({ children }) {
-  const pathname = usePathname();
-  const isHomePage = pathname === "/";
-
-  return (
-    <html lang="en" className={inter.variable}>
-      <head>
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
-        />
-      </head>
-      <body className="min-h-screen bg-white">
-        <div className="relative flex min-h-screen flex-col ">
-          <div
-            className="bg-cover bg-center "
-            style={{ backgroundImage: "url('/imgs/hero-bg.jpg')" }}
-          >
-            <Header />
-             <HomeHero />
-          </div>
-          <main className="flex-1">{children}</main>
-          <Footer />
-        </div>
-      </body>
-    </html>
-  );
+    const pathname = usePathname();
+    const isPage = pathname == "/info" || pathname == "/hisoblash";
+    return (
+        <html lang="en" className={inter.variable}>
+            <head>
+                <link
+                    rel="stylesheet"
+                    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+                />
+            </head>
+            <body className="min-h-screen bg-white">
+                <div className="relative flex min-h-screen flex-col ">
+                    <div
+                        className={
+                            isPage ? "bg-cover h-[135px]" : "bg-cover bg-center"
+                        }
+                        style={{ backgroundImage: "url('/imgs/hero-bg.jpg')" }}
+                    >
+                        <Header />
+                        {!isPage && <HomeHero />}
+                    </div>
+                    <main className="flex-1">{children}</main>
+                    <Footer />
+                </div>
+            </body>
+        </html>
+    );
 }

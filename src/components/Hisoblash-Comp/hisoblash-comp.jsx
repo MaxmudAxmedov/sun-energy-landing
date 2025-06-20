@@ -146,7 +146,14 @@ Stansiya turi: ${selectedPowerSystem}
 Kvt: ${selectedKvt} kwt
 Mahsulotlar:
 ${productsText}
-Umumiy summa: ${totalSum.toLocaleString()} so'm
+Accessory: ${(selectedKvt * 200000).toLocaleString()} so'm
+O'rnatish: ${(selectedKvt * 300000).toLocaleString()} so'm
+Mahsulotlar : ${totalSum.toLocaleString()} so'm
+Umumiy summa: ${(
+            selectedKvt * 200000 +
+            selectedKvt * 300000 +
+            totalSum
+        ).toLocaleString()} so'm
         `;
 
         const url = `https://api.telegram.org/bot7756346699:AAGJvRdpDiVqLRUdIoHkIL9dGUfnJlBSUoQ/sendMessage`;
@@ -403,7 +410,7 @@ Umumiy summa: ${totalSum.toLocaleString()} so'm
 
                     {showCart && (
                         <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center z-50">
-                            <div className="bg-white rounded-lg p-6 w-full max-w-[550px] text-black">
+                            <div className="bg-white rounded-lg p-6 w-full max-w-[640px] text-black">
                                 <p className="text-[20px] font-bold mb-4">
                                     {selectedKvt} kwt uchun tanlangan
                                     mahsulotlar
@@ -425,9 +432,41 @@ Umumiy summa: ${totalSum.toLocaleString()} so'm
                                         </div>
                                     )
                                 )}
-                                <div className="mt-4 font-bold">
-                                    Umumiy: {totalSum.toLocaleString()} so'm
+                                <div className="space-y-2">
+                                    <span className="flex gap-1">
+                                        <strong>Accessory:</strong>{" "}
+                                        {(
+                                            selectedKvt * 200000
+                                        ).toLocaleString()}{" "}
+                                        sum
+                                    </span>
+
+                                    <span className="flex gap-1">
+                                        <strong>O'rnatish:</strong>{" "}
+                                        {(
+                                            selectedKvt * 300000
+                                        ).toLocaleString()}{" "}
+                                        sum
+                                    </span>
+
+                                    <span className="flex gap-1">
+                                        <strong>Mahsulotlar:</strong>{" "}
+                                        {totalSum.toLocaleString()} sum
+                                    </span>
+
+                                    <hr className="my-2" />
+
+                                    <span className="flex gap-1 font-bold text-lg">
+                                        <strong>Umumiy summa:</strong>{" "}
+                                        {(
+                                            selectedKvt * 200000 +
+                                            selectedKvt * 300000 +
+                                            totalSum
+                                        ).toLocaleString()}{" "}
+                                        sum
+                                    </span>
                                 </div>
+
                                 <div className="flex justify-between">
                                     <button
                                         onClick={() => setShowCart(false)}
