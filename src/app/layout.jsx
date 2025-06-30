@@ -15,6 +15,7 @@ const inter = Inter({
 export default function RootLayout({ children }) {
     const pathname = usePathname();
     const isPage = pathname == "/info" || pathname == "/hisoblash";
+    const isBgImg = pathname == "/info";
     return (
         <html lang="en" className={inter.variable}>
             <head>
@@ -27,9 +28,15 @@ export default function RootLayout({ children }) {
                 <div className="relative flex min-h-screen flex-col ">
                     <div
                         className={
-                            isPage ? "bg-cover h-[135px]" : "bg-cover bg-center"
+                            isBgImg
+                                ? "bg-cover h-[135px] absolute left-0 right-0"
+                                : "bg-cover bg-center"
                         }
-                        style={{ backgroundImage: "url('/imgs/hero-bg.jpg')" }}
+                        style={{
+                            backgroundImage: !isBgImg
+                                ? "url('/imgs/hero-bg.jpg')"
+                                : "",
+                        }}
                     >
                         <Header />
                         {!isPage && <HomeHero />}
