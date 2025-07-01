@@ -143,7 +143,7 @@ export default function HisoblashComp({ products }) {
 Ismi: ${formData.name}
 Telefon: ${formData.phone}
 Stansiya turi: ${selectedPowerSystem}
-Kvt: ${selectedKvt} kwt
+Kwt: ${selectedKvt} kwt
 Mahsulotlar:
 ${productsText}
 Accessory: ${(selectedKvt * 200000).toLocaleString()} so'm
@@ -194,7 +194,7 @@ Umumiy summa: ${(
                             Stansiya turini tanlang
                         </h4>
                         <p className="text-black font-[400] text-[14px] md:text-[17px]">
-                            <span className="text-yellow">kvt</span> ni tanlang
+                            <span className="text-yellow">kwt</span> ni tanlang
                         </p>
                     </div>
 
@@ -237,10 +237,10 @@ Umumiy summa: ${(
                                 value={selectedKvt || ""}
                                 className="border border-yellow w-[100px] rounded-[12px] py-[7px] pr-[7px] text-right text-black outline-none text-[12px] md:text-[14px]"
                             >
-                                <option value="">Kvt</option>
+                                <option value="">Kwt</option>
                                 {kwtOptions.map((kvt) => (
                                     <option key={kvt} value={kvt}>
-                                        {kvt} kvt
+                                        {kvt} kwt
                                     </option>
                                 ))}
                             </select>
@@ -255,9 +255,9 @@ Umumiy summa: ${(
                     </h3>
                     <div className="text-[15px] md:text-[18px]">
                         <p>1 - Stansiya turini tanlang.</p>
-                        <p>2 - Kvt ni tanlang.</p>
+                        <p>2 - Kwt ni tanlang.</p>
                         <p>3 - Mahsulotlarni ketma-ket tanlang.</p>
-                        <p>4 - Hisoblash tugmasini bosing.</p>
+                        {/* <p>4 - Hisoblash tugmasini bosing.</p> */}
                     </div>
                 </div>
             </div>
@@ -318,11 +318,22 @@ Umumiy summa: ${(
 
             {selectedKvt && !allStepsCompleted && (
                 <>
-                    <div className="flex justify-center mb-8">
-                        {categoryOptions.map((category, index) => (
-                            <div key={category} className="flex items-center">
+                    <div className="flex items-center justify-between">
+                        <button
+                            onClick={handlePrev}
+                            disabled={step === 0}
+                            className="px-4 py-2 bg-gray-300 rounded"
+                        >
+                            Orqaga
+                        </button>
+                        <div className="flex justify-center">
+                            {categoryOptions.map((category, index) => (
                                 <div
-                                    className={`flex items-center justify-center w-8 h-8 rounded-full text-white 
+                                    key={category}
+                                    className="flex items-center"
+                                >
+                                    <div
+                                        className={`flex items-center justify-center w-8 h-8 rounded-full text-white 
                                     ${
                                         index === step
                                             ? "bg-yellow text-black font-bold"
@@ -330,31 +341,40 @@ Umumiy summa: ${(
                                             ? "bg-green-500"
                                             : "bg-gray-300"
                                     }`}
-                                >
-                                    {index < step ? "✔" : index + 1}
+                                    >
+                                        {index < step ? "✔" : index + 1}
+                                    </div>
+                                    <span
+                                        className={`ml-2 text-sm ${
+                                            index === step
+                                                ? "font-semibold text-black"
+                                                : "text-gray-500"
+                                        }`}
+                                    >
+                                        {category}
+                                    </span>
+                                    {index !== categoryOptions.length - 1 && (
+                                        <div className="w-10 h-[2px] bg-gray-300 mx-2"></div>
+                                    )}
                                 </div>
-                                <span
-                                    className={`ml-2 text-sm ${
-                                        index === step
-                                            ? "font-semibold text-black"
-                                            : "text-gray-500"
-                                    }`}
-                                >
-                                    {category}
-                                </span>
-                                {index !== categoryOptions.length - 1 && (
-                                    <div className="w-10 h-[2px] bg-gray-300 mx-2"></div>
-                                )}
-                            </div>
-                        ))}
+                            ))}
+                        </div>
+
+                        <button
+                            onClick={handleNext}
+                            disabled={!selectedProducts[currentCategory]}
+                            className="px-4 py-2 bg-yellow rounded"
+                        >
+                            Keyingi
+                        </button>
                     </div>
 
                     <h4 className="text-center text-[18px] font-semibold mb-4">
                         {currentCategory}
                     </h4>
 
-                    <div className="grid grid-cols-1 justify-items-center md:grid-cols-2 lg:grid-cols-3 gap-4 text-black">
-                        {limitedProducts.map((item) => (
+                    <div className="relative grid grid-cols-1 justify-items-center md:grid-cols-2 lg:grid-cols-3 gap-4 text-black pb-5">
+                        {limitedProducts.length ? limitedProducts.map((item) => (
                             <div
                                 key={item.id}
                                 onClick={() => handleSelectProduct(item)}
@@ -367,10 +387,10 @@ Umumiy summa: ${(
                             >
                                 <HisoblashCard item={item} step={step} />
                             </div>
-                        ))}
+                        )): <p className="absolute top-[-15px] text-[20px]">Tanlangan kwt bo'yicha mahsulot topilmadi</p>}
                     </div>
 
-                    <div className="flex justify-between mt-8">
+                    {/* <div className="flex justify-between mt-8">
                         <button
                             onClick={handlePrev}
                             disabled={step === 0}
@@ -395,98 +415,96 @@ Umumiy summa: ${(
                                 Keyingi
                             </button>
                         )}
-                    </div>
+                    </div> */}
                 </>
+            )}
+
+            {!selectedKvt && (
+                <div className="flex flex-col justify-center items-center text-black">
+                    <img width={100} src="icons/no-data.png" alt="" />
+                    <p className="text-[18px]">Sizda hali mahsulot yuq, kwt ni tanlang</p>
+                </div>
             )}
 
             {allStepsCompleted && (
                 <div className="mt-10 text-center">
-                    <button
+                    {/* <button
                         onClick={() => setShowCart(true)}
                         className="px-6 py-3 bg-yellow rounded text-[16px] font-bold"
                     >
                         {totalSum.toLocaleString()} so'm Savatchani ko'rish
-                    </button>
+                    </button> */}
 
-                    {showCart && (
-                        <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center z-50">
-                            <div className="bg-white rounded-lg p-6 w-full max-w-[640px] text-black">
-                                <p className="text-[20px] font-bold mb-4">
-                                    {selectedKvt} kwt uchun tanlangan
-                                    mahsulotlar
-                                </p>
-                                {Object.entries(selectedProducts).map(
-                                    ([cat, product]) => (
-                                        <div
-                                            key={cat}
-                                            className="mb-2 text-left"
-                                        >
-                                            <strong>{cat}:</strong>{" "}
-                                            {product.name} |{" "}
-                                            {product.neededCount} dona |{" "}
-                                            {(
-                                                product.selling_price *
-                                                (product.neededCount || 1)
-                                            ).toLocaleString()}{" "}
-                                            so'm
-                                        </div>
-                                    )
-                                )}
-                                <div className="space-y-2">
-                                    <span className="flex gap-1">
-                                        <strong>Accessory:</strong>{" "}
+                    {/* {showCart && ( */}
+                    <div className="flex justify-center items-center z-50">
+                        <div className="bg-white rounded-lg p-6 w-full max-w-[640px] text-black">
+                            <p className="text-[20px] font-bold mb-4">
+                                {selectedKvt} kwt uchun tanlangan mahsulotlar
+                            </p>
+                            {Object.entries(selectedProducts).map(
+                                ([cat, product]) => (
+                                    <div key={cat} className="mb-2 text-left">
+                                        <strong>{cat}:</strong> {product.name} |{" "}
+                                        {product.neededCount} dona |{" "}
                                         {(
-                                            selectedKvt * 200000
+                                            product.selling_price *
+                                            (product.neededCount || 1)
                                         ).toLocaleString()}{" "}
-                                        sum
-                                    </span>
+                                        so'm
+                                    </div>
+                                )
+                            )}
+                            <div className="space-y-2">
+                                <span className="flex gap-1">
+                                    <strong>Accessory:</strong>{" "}
+                                    {(selectedKvt * 200000).toLocaleString()}{" "}
+                                    sum
+                                </span>
 
-                                    <span className="flex gap-1">
-                                        <strong>O'rnatish:</strong>{" "}
-                                        {(
-                                            selectedKvt * 300000
-                                        ).toLocaleString()}{" "}
-                                        sum
-                                    </span>
+                                <span className="flex gap-1">
+                                    <strong>O'rnatish:</strong>{" "}
+                                    {(selectedKvt * 300000).toLocaleString()}{" "}
+                                    sum
+                                </span>
 
-                                    <span className="flex gap-1">
-                                        <strong>Mahsulotlar:</strong>{" "}
-                                        {totalSum.toLocaleString()} sum
-                                    </span>
+                                <span className="flex gap-1">
+                                    <strong>Mahsulotlar:</strong>{" "}
+                                    {totalSum.toLocaleString()} sum
+                                </span>
 
-                                    <hr className="my-2" />
+                                <hr className="my-2" />
 
-                                    <span className="flex gap-1 font-bold text-lg">
-                                        <strong>Umumiy summa:</strong>{" "}
-                                        {(
-                                            selectedKvt * 200000 +
-                                            selectedKvt * 300000 +
-                                            totalSum
-                                        ).toLocaleString()}{" "}
-                                        sum
-                                    </span>
-                                </div>
+                                <span className="flex gap-1 font-bold text-lg">
+                                    <strong>Umumiy summa:</strong>{" "}
+                                    {(
+                                        selectedKvt * 200000 +
+                                        selectedKvt * 300000 +
+                                        totalSum
+                                    ).toLocaleString()}{" "}
+                                    sum
+                                </span>
+                            </div>
 
-                                <div className="flex justify-between">
-                                    <button
+                            <div className="flex justify-between">
+                                {/* <button
                                         onClick={() => setShowCart(false)}
                                         className="mt-4 px-4 py-2 bg-yellow rounded text-white"
                                     >
                                         Yopish
-                                    </button>
-                                    <button
-                                        onClick={() => {
-                                            setShowForm(true);
-                                            setShowCart(false);
-                                        }}
-                                        className="mt-4 px-4 py-2 bg-yellow rounded text-white"
-                                    >
-                                        Ariza qoldirish
-                                    </button>
-                                </div>
+                                    </button> */}
+                                <button
+                                    onClick={() => {
+                                        setShowForm(true);
+                                        setShowCart(false);
+                                    }}
+                                    className="w-full mt-4 px-4 py-2 bg-yellow rounded text-white"
+                                >
+                                    Ariza qoldirish
+                                </button>
                             </div>
                         </div>
-                    )}
+                    </div>
+                    {/* )} */}
                 </div>
             )}
         </div>

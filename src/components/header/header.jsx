@@ -9,19 +9,19 @@ export const Header = () => {
     const pathname = usePathname();
     const [open, onOpen] = useState(false);
     const isActive = (path) => {
-        if (pathname === "/") return path === "/xizmatlar";
+        if (pathname === "/") return path === "/";
         return pathname === path;
     };
     const page = [
-        {
-            id: 1,
-            title: "Xizmatlar",
-            path: "/xizmatlar",
-        },
+        // {
+        //     id: 1,
+        //     title: "Xizmatlar",
+        //     path: "/xizmatlar",
+        // },
         {
             id: 2,
             title: "Mahsulotlar",
-            path: "/mahsulotlar",
+            path: "/",
         },
         // {
         //   id: 3,
