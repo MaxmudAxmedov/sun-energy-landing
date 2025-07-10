@@ -146,11 +146,11 @@ Stansiya turi: ${selectedPowerSystem}
 Kwt: ${selectedKvt} kwt
 Mahsulotlar:
 ${productsText}
-Accessory: ${(selectedKvt * 200000).toLocaleString()} so'm
+Accessory: ${(selectedKvt * 300000).toLocaleString()} so'm
 O'rnatish: ${(selectedKvt * 300000).toLocaleString()} so'm
 Mahsulotlar : ${totalSum.toLocaleString()} so'm
 Umumiy summa: ${(
-            selectedKvt * 200000 +
+            selectedKvt * 300000 +
             selectedKvt * 300000 +
             totalSum
         ).toLocaleString()} so'm
@@ -457,7 +457,7 @@ Umumiy summa: ${(
                             <div className="space-y-2">
                                 <span className="flex gap-1">
                                     <strong>Accessory:</strong>{" "}
-                                    {(selectedKvt * 200000).toLocaleString()}{" "}
+                                    {(selectedKvt * 300000).toLocaleString()}{" "}
                                     sum
                                 </span>
 
@@ -477,7 +477,7 @@ Umumiy summa: ${(
                                 <span className="flex gap-1 font-bold text-lg">
                                     <strong>Umumiy summa:</strong>{" "}
                                     {(
-                                        selectedKvt * 200000 +
+                                        selectedKvt * 300000 +
                                         selectedKvt * 300000 +
                                         totalSum
                                     ).toLocaleString()}{" "}
