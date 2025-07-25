@@ -22,6 +22,7 @@ const config = {
         padding: "2rem",
         screens: {
           lg: "1200px",
+          maxLg2: { max: "1299px" },
         },
       },
     },
