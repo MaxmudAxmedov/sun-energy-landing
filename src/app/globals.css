@@ -7,6 +7,11 @@
   --white: #ffffff;
   --black: #303030;
   --yellow: #a9a32a;
+  --default: #fbcf30;
+  --sub-color: #0a9642;
+  --background-color: #17195a;
+  --title-color: #000;
+  --paragraph-color: #666;
 }
 
 @theme inline {
@@ -16,6 +21,11 @@
   --color-white: var(--white);
   --color-black: var(--black);
   --color-yellow: var(--yellow);
+  --color-default: var(--default);
+  --color-sub-color: var(--sub-color);
+  --color-background-color: var(--background-color);
+  --color-title-color: var(--title-color);
+  --color-paragraph-color: var(--paragraph-color);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
@@ -31,5 +41,3 @@ html {
 
   transition: transform 1s ease-in-out;
 }
-
-
