@@ -97,7 +97,7 @@ export const Header = () => {
                                         className="font-[400] mt-3 text-left text-[14px] pl-[12px] pt-[12px] pb-[12px] cursor-pointer bg-yellow"
                                     >
                                         {/* <a href="#contact-form">Biz bilan bog’laning</a> */}
-                                        <Link href={"/bog'lanish"}>
+                                        <Link href={"/boglanish"}>
                                             Biz bilan bog’laning
                                         </Link>
                                     </button>
@@ -143,7 +143,7 @@ export const Header = () => {
                                 <button className="hidden lg:block font-[700] text-[16px] pt-[29px] pr-[44px] pb-[26px] pl-[41px] cursor-pointer bg-[#c9f529] rounded-[80px] text-[#414a22] ">
                                     {/* <a href="#contact-form" className="flex items-center gap-2"> */}
                                     <Link
-                                        href={"/bog'lanish"}
+                                        href={"/boglanish"}
                                         className="flex items-center gap-2"
                                     >
                                         Bog'lanish
