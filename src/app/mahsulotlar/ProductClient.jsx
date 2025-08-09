@@ -6,7 +6,10 @@ import { MahsulotlarCard } from "@/components/mahsulotlar-card/mahsulotlar-card"
 const ProductClient = ({ products, categories }) => {
     const [selectedCategory, setSelectedCategory] = useState(null);
     const [searchTerm, setSearchTerm] = useState("");
+    const [currentPage, setCurrentPage] = useState(1);
+    const productsPerPage = 9; // Adjust this number as needed
 
+    // Filter products
     const filteredProducts = products.filter((item) => {
         const matchesCategory =
             selectedCategory === null ||
@@ -19,32 +22,50 @@ const ProductClient = ({ products, categories }) => {
         return matchesCategory && matchesSearch;
     });
 
+    // Calculate pagination details
+    const indexOfLastProduct = currentPage * productsPerPage;
+    const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+    const currentProducts = filteredProducts.slice(
+        indexOfFirstProduct,
+        indexOfLastProduct
+    );
+    const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
+
+    // Handle page change
+    const paginate = (pageNumber) => {
+        setCurrentPage(pageNumber);
+        // Optional: Scroll to top of products section
+        document
+            .getElementById("mahsulotlar")
+            ?.scrollIntoView({ behavior: "smooth" });
+    };
+
+    // Generate page numbers for display
+    const pageNumbers = [];
+    for (let i = 1; i <= totalPages; i++) {
+        pageNumbers.push(i);
+    }
+
     return (
         <div className="container lg:w-[1200px] mx-auto">
             <div id="mahsulotlar" className="mt-[87px] mb-[90px]">
-                <div className="flex justify-between items-center mb-6 px-[10px] lg:px-0">
-                    <h2 className="font-bold text-[24px] text-grey">
-                        Mahsulotlar
-                    </h2>
-
-                    <input
-                        type="text"
-                        placeholder="Mahsulotni qidirish..."
-                        value={searchTerm}
-                        onChange={(e) => setSearchTerm(e.target.value)}
-                        className="text-black border-gray-300 rounded px-4 py-2 w-[450px] outline-none  focus:border-yellow border-2"
-                    />
-                </div>
-
                 <div className="flex gap-8">
-                    <div className="w-[200px]">
-                        <ul className="space-y-3">
+                    <div className="w-[300px]">
+                        <ul className="space-y-3 bg-[#12169D] p-7 rounded-3xl text-[20px]">
+                            <li>
+                                <h2 className="font-bold text-[35px] text-white">
+                                    Mahsulotlar
+                                </h2>
+                            </li>
                             <li
-                                onClick={() => setSelectedCategory(null)}
+                                onClick={() => {
+                                    setSelectedCategory(null);
+                                    setCurrentPage(1); // Reset to first page when changing category
+                                }}
                                 className={`cursor-pointer ${
                                     selectedCategory === null
-                                        ? "font-bold text-yellow"
-                                        : "text-gray-700"
+                                        ? "font-bold bg-gradient-to-r from-[#3B9CFF] to-[#12169D] py-1 px-2 rounded-xl"
+                                        : "text-[#FFFFFF]"
                                 }`}
                             >
                                 Barchasi
@@ -52,11 +73,14 @@ const ProductClient = ({ products, categories }) => {
                             {categories.map((cat) => (
                                 <li
                                     key={cat}
-                                    onClick={() => setSelectedCategory(cat)}
+                                    onClick={() => {
+                                        setSelectedCategory(cat);
+                                        setCurrentPage(1); // Reset to first page when changing category
+                                    }}
                                     className={`cursor-pointer capitalize ${
                                         selectedCategory === cat
-                                            ? "font-bold text-yellow"
-                                            : "text-gray-700"
+                                            ? "font-bold bg-gradient-to-r from-[#3B9CFF] to-[#12169D] py-1 px-2 rounded-xl"
+                                            : "text-[#FFFFFF]"
                                     }`}
                                 >
                                     {cat}
@@ -65,15 +89,55 @@ const ProductClient = ({ products, categories }) => {
                         </ul>
                     </div>
 
-                    <div className="flex-1 flex flex-wrap justify-between gap-[39px]">
-                        {filteredProducts.length > 0 ? (
-                            filteredProducts.map((item) => (
-                                <MahsulotlarCard key={item.id} item={item} />
-                            ))
-                        ) : (
-                            <p className="text-center text-gray-500 w-full">
-                                Mahsulot topilmadi.
-                            </p>
+                    <div className="flex flex-col w-full">
+                        <div className="flex flex-wrap justify-between gap-8">
+                            {currentProducts.length > 0 ? (
+                                currentProducts.map((item) => (
+                                    <MahsulotlarCard
+                                        key={item.id}
+                                        item={item}
+                                    />
+                                ))
+                            ) : (
+                                <p className="text-center text-gray-500 w-full">
+                                    Mahsulot topilmadi.
+                                </p>
+                            )}
+                        </div>
+
+                        {/* Pagination Controls */}
+                        {totalPages > 1 && (
+                            <div className="flex justify-center mt-8 gap-2">
+                                <button
+                                    onClick={() => paginate(currentPage - 1)}
+                                    disabled={currentPage === 1}
+                                    className="px-4 py-2 bg-[#12169D] text-white rounded-lg disabled:opacity-50"
+                                >
+                                    Oldingi
+                                </button>
+
+                                {pageNumbers.map((number) => (
+                                    <button
+                                        key={number}
+                                        onClick={() => paginate(number)}
+                                        className={`px-4 py-2 rounded-lg ${
+                                            currentPage === number
+                                                ? "bg-[#3B9CFF] text-white"
+                                                : "bg-gray-200 text-black"
+                                        }`}
+                                    >
+                                        {number}
+                                    </button>
+                                ))}
+
+                                <button
+                                    onClick={() => paginate(currentPage + 1)}
+                                    disabled={currentPage === totalPages}
+                                    className="px-4 py-2 bg-[#12169D] text-white rounded-lg disabled:opacity-50"
+                                >
+                                    Keyingi
+                                </button>
+                            </div>
                         )}
                     </div>
                 </div>

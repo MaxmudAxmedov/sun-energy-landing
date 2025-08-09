@@ -25,6 +25,9 @@ const config = {
           maxLg2: { max: "1299px" },
         },
       },
+      backgroundImage: {
+        'custom-blue-gradient': 'linear-gradient(90deg, #3B9CFF 0%, #12169D 100%)',
+      }
     },
   },
 };
