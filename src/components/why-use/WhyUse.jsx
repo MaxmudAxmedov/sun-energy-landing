@@ -1,0 +1,105 @@
+import Image from "next/image";
+import React from "react";
+
+export default function WhyUse() {
+    return (
+        <div className="flex justify-between my-[180px]">
+            <div>
+                <h2 className="text-[#FE5716] text-[16px] font-[700]">
+                    Chiqindisiz dunyo
+                </h2>
+                <p className="text-[60px] text-black font-[700]">
+                    Nega aynan Biz?
+                </p>
+
+                <ul className="flex flex-col gap-2 w-[574px] items-start">
+                    <li className="flex justify-between items-center text-black">
+                        <Image
+                            src="/time.svg"
+                            alt="time"
+                            width={100}
+                            height={100}
+                            className="mx-auto"
+                        />
+                        <div>
+                            <p className="text-[26px] font-bold mb-2.5">
+                                Vaqtingizni tejang
+                            </p>
+                            <p className="text-[18px]">
+                                Atigi bitta forma to‘ldirib, eng yaxshi 3 ta
+                                taklifga ega bo‘ling
+                            </p>
+                        </div>
+                    </li>
+                    <li className="flex justify-between items-center text-black">
+                        <Image
+                            src="/money.svg"
+                            alt="time"
+                            width={100}
+                            height={100}
+                            className="mx-auto"
+                        />
+                        <div>
+                            <p className="text-[26px] font-bold mb-2.5">
+                                Pulni tejash – oson!
+                            </p>
+                            <p className="text-[18px]">
+                                Tanlab olingan yetkazib beruvchilardan eng qulay
+                                narxlar
+                            </p>
+                        </div>
+                    </li>
+                    <li className="flex justify-between items-center text-black">
+                        <Image
+                            src="/services.svg"
+                            alt="time"
+                            width={100}
+                            height={100}
+                            className="mx-auto"
+                        />
+                        <div>
+                            <p className="text-[26px] font-bold mb-2.5">
+                                Majburiyatsiz, bepul xizmat
+                            </p>
+                            <p className="text-[18px]">
+                                Hech qanday to‘lovlarsiz, 3 ta taklifni oling
+                            </p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <iframe
+                    className="rounded-[30px]"
+                    width="800"
+                    height="478"
+                    src="https://www.youtube.com/embed/VIg8qpI5b3Y?si=VAyrxLDv-tlONHoL"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen
+                ></iframe>
+
+                <div className="bg-[#6ACC20] rounded-4xl mt-2.5">
+                    <span className="inline-block w-[50%] p-10">
+                        <p className="uppercase">Qo‘ng‘iroq qiling:</p>
+                        <a href="tel:+998991234567" className="text-[24px]">
+                            +998 99 123 45 67
+                        </a>
+                    </span>
+                    <span className="inline-block bg-[#ffff] w-[50%] rounded-4xl p-10">
+                        <p className="text-black uppercase">Telegram:</p>
+                        <a
+                            href="mailto:@usernamesolarpanel"
+                            className="text-[#6ACC20] text-[24px]"
+                        >
+                            @usernamesolarpanel
+                        </a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    );
+}

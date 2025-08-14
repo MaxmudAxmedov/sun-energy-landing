@@ -27,6 +27,11 @@ export const MahsulotlarCard = ({ item }) => {
                 <h3 className="font-[700] text-[18px] mb-[11px] text-black">
                     {item.name}
                 </h3>
+                <p className="text-black">{item.watt} watt</p>
+                <p className="text-black text-[20px] font-bold">
+                    Narxi: {Number(item.selling_price).toLocaleString()}{" "}
+                    <small>sum</small>
+                </p>
                 <p className="font-[400] text-[14px] mb-[8px] h-[100px] overflow-y-scroll p-1 text-black">
                     {showMore ? item.description : truncatedText}
                     {item.description.length > maxLength && (

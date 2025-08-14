@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React from "react";
+import WhyUse from "../why-use/WhyUse";
 
 export default function ServicesType() {
     return (
@@ -204,6 +205,8 @@ export default function ServicesType() {
                     </div>
                 </div>
             </div>
+
+            <WhyUse />
         </div>
     );
 }
