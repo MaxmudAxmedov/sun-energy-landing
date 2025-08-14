@@ -1,6 +1,8 @@
 "use client";
 
 import { forceConvertDomain } from "@/lib/forceConvertDomain";
+import Image from "next/image";
+import Link from "next/link";
 import React, { useState } from "react";
 
 export const MahsulotlarCard = ({ item }) => {
@@ -32,17 +34,41 @@ export const MahsulotlarCard = ({ item }) => {
                     Narxi: {Number(item.selling_price).toLocaleString()}{" "}
                     <small>sum</small>
                 </p>
-                <p className="font-[400] text-[14px] mb-[8px] h-[100px] overflow-y-scroll p-1 text-black">
-                    {showMore ? item.description : truncatedText}
-                    {item.description.length > maxLength && (
-                        <button
-                            onClick={() => setShowMore((prev) => !prev)}
-                            className="text-yellow ml-1 underline"
+                <div className="flex justify-between items-end">
+                    <div className="w-[85%]">
+                        <p className="font-[400] text-[14px] mb-[8px] h-[100px] overflow-y-scroll p-1 text-black">
+                            {showMore ? item.description : truncatedText}
+                            {item.description.length > maxLength && (
+                                <button
+                                    onClick={() => setShowMore((prev) => !prev)}
+                                    className="text-yellow ml-1 underline"
+                                >
+                                    {showMore ? "yopish" : "ko‘proq"}
+                                </button>
+                            )}
+                        </p>
+                    </div>
+                    <div className="w-[12%]">
+                        <Link
+                            href={{
+                                pathname: `/mahsulotlar/${item.id}`,
+                                query: {
+                                    data: encodeURIComponent(
+                                        JSON.stringify(item)
+                                    ),
+                                },
+                            }}
                         >
-                            {showMore ? "yopish" : "ko‘proq"}
-                        </button>
-                    )}
-                </p>
+                            <Image
+                                src="/arrow.svg"
+                                alt="Uyda ornatish"
+                                width={40}
+                                height={40}
+                                className="mx-auto"
+                            />
+                        </Link>
+                    </div>
+                </div>
             </div>
         </div>
     );

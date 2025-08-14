@@ -1,54 +1,78 @@
+"use client";
+
 import Image from "next/image";
-import React from "react";
+import Link from "next/link";
+import { useParams, useSearchParams } from "next/navigation";
 
-const BizHaqimizda = () => {
+export default function ProductPage() {
+    const { id } = useParams();
+    const searchParams = useSearchParams();
+
+    const rawData = searchParams.get("data");
+    const item = rawData ? JSON.parse(decodeURIComponent(rawData)) : null;
+
+    console.log(item);
     return (
-        <div className="container lg:max-w-[1200px] mx-auto mt-20">
-            <div className="flex justify-between">
-                <div className="w-[45%]">
-                    <h2 className="text-[#FE5716] text-[14px] font-[700] mb-2">
-                        BRAVO SUN ENERGY GA HUSH KELIBSIZ
-                    </h2>
-                    <hr className="text-[#FE5716] w-[80px] h-[2px] mb-3" />
-                    <p className="text-[30px] text-[#000] font-[700]">
-                        BRAVO SUN ENERGY BILAN JAMIYATNI QUVVATLANTIRING
-                    </p>
-
-                    <p className="text-[#000] my-5">
-                        Bizning “BRAVO SUN ENERGIES” korxonasi Xitoyning yirik
-                        ishlab chiqaruvchilari bilan uzviy aloqa xizmati va
-                        kelishuv asosida ish olib boradi. Bu esa bizning
-                        korxonamiz xizmatlarini yanada yaxshilash hamda malakali
-                        kadrlar bilan ishlash imkoniyatini beradi.
-                    </p>
-
-                    <div className="text-[#000] flex flex-col">
-                        <strong>Ism Familya: Abdulla</strong>
-                        <small>BSE direktori</small>
-                    </div>
-                </div>
-                <div className="w-[50%] relative">
-                    <Image
-                        src="/imgs/about.png"
-                        alt="Uyda ornatish"
-                        width={750}
-                        height={620}
-                        className="mx-auto"
-                    />
-
-                    <span className="w-[200px] flex items-start gap-8 absolute right-0 bottom-0 bg-[#6ACC20] py-3 px-5 rounded-3xl">
+        <div className="container lg:max-w-[1200px] mx-auto mb-20">
+            <div className="text-[#000]">
+                <div className="flex relative mt-10">
+                    <Link href={"/mahsulotlar"}>
                         <Image
-                            src="/sertificate.svg"
+                            src={"/back.svg"}
                             alt="Uyda ornatish"
-                            width={40}
-                            height={25}
-                            className="relative top-2"
+                            width={30}
+                            height={34}
                         />
-                        <div>
-                            <span className="text-[35px] font-[700] mt-[-4px]">5+</span> <br />
-                            <small className="font-bold">Yil Tajriba</small>
+                    </Link>
+
+                    <h1 className="absolute left-[42%]">
+                        Quyosh panelI Haqida ma‘lumot
+                    </h1>
+                </div>
+                <h2 className="text-center text-[30px] my-10">{item?.name}</h2>
+                <div className="flex justify-between items-center">
+                    <div className="relative w-[500px] h-[570px]">
+                        <Image
+                            src={item?.photo}
+                            alt="Uyda ornatish"
+                            fill
+                            className="object-contain"
+                        />
+                    </div>
+
+                    <div className="w-[600px]">
+                        <p className="text-[20px] mb-8">
+                            Tejamkor va kuchli energiya manbai 22.5% energiya
+                            samaradorligi Namlik va UV-ga chidamli Oson ulanish
+                            <strong>10 yil kafolat</strong>
+                        </p>
+
+                        <div className="flex flex-col w-[260px]">
+                            <span className="inline-block text-[22px] px-5 py-2.5 bg-[#000] text-[#fff] p-2 rounded-3xl">
+                                Narxi:{" "}
+                                {Number(item?.selling_price).toLocaleString()}{" "}
+                                <small>So'm</small>
+                            </span>
+                            <span className="flex text-[22px] justify-between px-5 py-2.5 my-[40px] bg-[#6ACB20] text-[#fff] p-2 rounded-3xl">
+                                <Image
+                                    src={"/call.svg"}
+                                    alt="Uyda ornatish"
+                                    width={20}
+                                    height={30}
+                                />
+                                Biz bilan bog'lanish
+                            </span>
+                            <span className="flex text-[22px] justify-between px-5 py-2.5 bg-[#FE5716] text-[#fff] p-2 rounded-3xl">
+                                To'liq ma'lumot
+                                <Image
+                                    src={"/info-arrow.svg"}
+                                    alt="Uyda ornatish"
+                                    width={50}
+                                    height={10}
+                                />
+                            </span>
                         </div>
-                    </span>
+                    </div>
                 </div>
             </div>
 
@@ -116,6 +140,4 @@ const BizHaqimizda = () => {
             </div>
         </div>
     );
-};
-
-export default BizHaqimizda;
+}
