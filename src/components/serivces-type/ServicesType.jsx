@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import WhyUse from "../why-use/WhyUse";
+import { LoyihalarimizSwiper } from "../loyihalarimizSwiper/loyihalarimizCard";
 
 export default function ServicesType() {
     return (
@@ -143,7 +144,7 @@ export default function ServicesType() {
                 </div>
             </div>
 
-            <div className="mb-[150px]">
+            {/* <div className="mb-[150px]">
                 <div className="text-black text-center mb-14">
                     <h2 className="text-[16px] font-[700] uppercase">
                         So‘nggi loyihalar
@@ -204,7 +205,9 @@ export default function ServicesType() {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
+
+            <LoyihalarimizSwiper />
 
             <WhyUse />
         </div>

@@ -47,15 +47,15 @@ export const Header = () => {
                     <div className="flex items-center justify-between mx-auto container    px-[10px]">
                         <div className="flex gap-[25px]  lg:pl-[92px] lg:py-[20px] py-[5px] ">
                             <div className="flex gap-2 items-center font-[700] text-[16px]">
-                                {/* <FacebookIcon /> */}
-                                Facebook
+                                <a
+                                    href="https://t.me/BravoSunEnergy"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    Telegram
+                                </a>
                             </div>
                             <div className="flex gap-2 items-center font-[700] text-[16px]">
-                                {/* <FacebookIcon /> */}
-                                Telegram
-                            </div>
-                            <div className="flex gap-2 items-center font-[700] text-[16px]">
-                                {/* <FacebookIcon /> */}
                                 Instagram
                             </div>
                         </div>

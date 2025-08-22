@@ -85,17 +85,19 @@ export default function WhyUse() {
                 <div className="bg-[#6ACC20] rounded-4xl mt-2.5">
                     <span className="inline-block w-[50%] p-10">
                         <p className="uppercase">Qo‘ng‘iroq qiling:</p>
-                        <a href="tel:+998991234567" className="text-[24px]">
-                            +998 99 123 45 67
+                        <a href="tel:+998944808804" className="text-[24px]">
+                            +998 94 480-88-04
                         </a>
                     </span>
                     <span className="inline-block bg-[#ffff] w-[50%] rounded-4xl p-10">
                         <p className="text-black uppercase">Telegram:</p>
                         <a
-                            href="mailto:@usernamesolarpanel"
+                            href="https://t.me/BravoSunEnergy"
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="text-[#6ACC20] text-[24px]"
                         >
-                            @usernamesolarpanel
+                            @BravoSunEnergy
                         </a>
                     </span>
                 </div>
