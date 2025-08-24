@@ -31,7 +31,8 @@ export const MahsulotlarCard = ({ item }) => {
                 </h3>
                 <p className="text-black">{item.watt} watt</p>
                 <p className="text-black text-[20px] font-bold">
-                    Narxi: {Number(item.selling_price).toLocaleString()}{" "}
+                    Narxi:{" "}
+                    {Number(item?.selling_price)?.toLocaleString("en-US")}{" "}
                     <small>sum</small>
                 </p>
                 <div className="flex justify-between items-end">

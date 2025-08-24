@@ -431,6 +431,7 @@ Umumiy summa: ${(
                                         }`}
                                     >
                                         <HisoblashCard
+                                            selectedKvt={selectedKvt}
                                             item={item}
                                             step={step}
                                         />
