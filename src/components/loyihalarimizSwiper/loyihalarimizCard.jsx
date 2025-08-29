@@ -62,12 +62,12 @@ const LoyihalarimizData = [
 export const LoyihalarimizSwiper = () => {
     return (
         <>
-            <div className="text-black text-center mb-14">
-                <h2 className="text-[16px] font-[700] uppercase">
+            <div className="text-black text-center mb-6 md:mb-8">
+                <h2 className="text-[10px] md:text-[16px] font-[700] uppercase">
                     So‘nggi loyihalar
                 </h2>
-                <span className="w-[620px] h-[2px] inline-block bg-[#E5E5E5]"></span>
-                <p className="text-[60px] font-[700]">
+                <span className="w-full max-w-[620px] h-[2px] inline-block bg-[#E5E5E5]"></span>
+                <p className="text-[28px] md:text-[40px] lg:text-[60px] font-[700]">
                     Eng so‘nggi o‘rnatishlar
                 </p>
             </div>

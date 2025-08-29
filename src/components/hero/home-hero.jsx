@@ -9,7 +9,6 @@ import { InstagramIcon } from "../../../public/icons/instagram-icon";
 import { TelegramIcon } from "../../../public/icons/telegram-icon";
 import { WhatsappIcon } from "../../../public/icons/whatsapp-icon";
 import { FacebookIcon } from "../../../public/icons/facebook-iocn";
-import ServicesType from "../serivces-type/ServicesType";
 
 export const HomeHero = () => {
     const SlideText = [
@@ -52,7 +51,7 @@ export const HomeHero = () => {
                 {SlideText?.map((item) => (
                     <SwiperSlide key={item.id}>
                         <div key={item.id} className="mx-auto">
-                            <h1 className="text-[28px] md:text-[48px] lg:text-[64px] font-bold pb-[249px] px-[10px]">
+                            <h1 className="text-[28px] md:text-[48px] lg:text-[64px] font-bold pb-[100px]  md:pb-[249px] px-[10px]">
                                 {item.title}
                             </h1>
                         </div>

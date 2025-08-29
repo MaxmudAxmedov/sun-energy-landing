@@ -42,9 +42,9 @@ export const Header = () => {
     ];
     return (
         <>
-            <div className="bg-blue-400 lg:h-[109px] lg:pb-[100px] mb-[200px] relative">
+            <div className="bg-blue-400 lg:h-[109px] mb-[100px] md:mb-[200px] relative">
                 <div className="    ">
-                    <div className="flex items-center justify-between mx-auto container    px-[10px]">
+                    <div className="flex items-center justify-between mx-auto container px-[10px]">
                         <div className="flex gap-[25px]  lg:pl-[92px] lg:py-[20px] py-[5px] ">
                             <div className="flex gap-2 items-center font-[700] text-[16px]">
                                 <a

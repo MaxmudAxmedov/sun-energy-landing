@@ -3,8 +3,9 @@ import React from "react";
 export const FooterIcon = () => {
   return (
     <svg
-      width={320}
-      height={211}
+      // width={320}
+      // height={211}
+      className="w-[200px] h-[100px] md:w-[320px] md:h-[211px]"
       viewBox="0 0 320 211"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

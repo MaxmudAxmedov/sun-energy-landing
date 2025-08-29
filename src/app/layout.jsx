@@ -7,7 +7,6 @@ import { Footer } from "@/components/footer/footer";
 import { usePathname } from "next/navigation";
 import { HomeHero } from "@/components/hero/home-hero";
 import { useEffect, useState } from "react";
-import ServicesType from "@/components/serivces-type/ServicesType";
 
 const inter = Inter({
     subsets: ["latin"],
@@ -44,13 +43,13 @@ export default function RootLayout({ children }) {
                         style={{
                             backgroundImage: "url('/imgs/hero-new.png')",
                             backgroundRepeat: "no-repeat",
+                            backgroundSize: "cover",
                         }}
                     >
                         {!is404 && (
                             <>
                                 <Header />
                                 <HomeHero />
-                                {pathname === "/" && <ServicesType />}
                             </>
                         )}
                     </div>
